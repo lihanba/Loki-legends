@@ -11,10 +11,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
 
-  <!-- Main stylesheet -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- AOS Animate on Scroll -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <!-- Spline 3D Viewer -->
@@ -39,6 +37,7 @@
         <a href="#gallery">Gallery</a>
         <a href="#videos">Videos</a>
         <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <div class="header-cta">
@@ -56,25 +55,28 @@
         <h1 class="hero-title">FTC Alumni<br>FOREVER</h1>
         <p class="hero-desc">
           FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots to complete yearly game challenges.
-          It blends engineering, programming, and teamwork while encouraging innovation, problem-solving, and community impact.
         </p>
         <div class="hero-buttons">
           <a class="btn btn-outline" href="https://www.firstinspires.org/robotics/ftc/start-a-team" target="_blank" rel="noopener">Start a team &gt;</a>
           <a class="btn btn-primary" href="#resources">Get Started &gt;</a>
         </div>
+        <div class="countdown" id="countdown"></div>
       </div>
 
       <div class="hero-right" data-aos="zoom-in-up">
-        <div id="robotContainer" class="robot-3d-wrapper" aria-hidden="true">
+        <div id="robotContainer" class="robot-3d-wrapper">
           <spline-viewer id="robotSpline"
             url="https://prod.spline.design/cwPPqpu3564FG3qx/scene.splinecode"
             style="width:100%; height:100%; display:block;">
           </spline-viewer>
-
-          <div class="robot-glow" aria-hidden="true"></div>
-          <canvas id="mouseTrail" class="mouse-trail" aria-hidden="true"></canvas>
+          <div class="robot-glow"></div>
+          <canvas id="mouseTrail" class="mouse-trail"></canvas>
         </div>
         <div class="robot-caption">Loki-Legends — DECODE Bot</div>
+        <div class="hours-section">
+          <p>Team Hours</p>
+          <div id="hours">0+</div>
+        </div>
       </div>
     </div>
   </section>
@@ -84,7 +86,7 @@
     <h2 data-aos="fade-up">Team Members</h2>
     <p class="small-lead" data-aos="fade-up" data-aos-delay="80">Students and alumni from Taradale Intermediate — building robots and habits that stick.</p>
 
-    <ul class="team-list" aria-label="Team members">
+    <ul class="team-list">
       <li data-aos="flip-left" data-aos-delay="50">
         <img src="https://via.placeholder.com/80" alt="Isla Buchanan">
         <strong>Isla Buchanan</strong>
@@ -106,16 +108,11 @@
         <span>FLL Alumni</span>
       </li>
       <li data-aos="flip-left" data-aos-delay="250">
-        <img src="https://via.placeholder.com/80" alt="Lihan Badenhorst">
-        <strong>Lihan Badenhorst</strong>
-        <span>Team Member</span>
-      </li>
-      <li data-aos="flip-left" data-aos-delay="300">
         <img src="https://via.placeholder.com/80" alt="Maia Richards">
         <strong>Maia Richards</strong>
         <span>FLL Alumni</span>
       </li>
-      <li data-aos="flip-left" data-aos-delay="350">
+      <li data-aos="flip-left" data-aos-delay="300">
         <img src="https://via.placeholder.com/80" alt="Alexis Joblin">
         <strong>Alexis Joblin</strong>
         <span>FLL Alumni</span>
@@ -126,7 +123,7 @@
   <!-- GALLERY -->
   <section id="gallery" class="gallery-section container">
     <h2 data-aos="fade-up">Robot & FLL/FTC Gallery</h2>
-    <div class="gallery-grid" data-aos="zoom-in">
+    <div class="gallery-grid">
       <div class="gallery-item"></div>
       <div class="gallery-item"></div>
       <div class="gallery-item"></div>
@@ -137,7 +134,7 @@
   <!-- VIDEOS -->
   <section id="videos" class="videos-section container">
     <h2 data-aos="fade-up">DECODE Reveal & Practice</h2>
-    <div class="video-wrap" data-aos="fade-up" data-aos-delay="60">
+    <div class="video-wrap">
       <iframe width="100%" height="420" src="https://www.youtube.com/embed/videoseries?list=PLEuGrYl8iBm6MUAG3tbwpDcuS8O6_yWtV" frameborder="0" allowfullscreen title="DECODE playlist"></iframe>
     </div>
   </section>
@@ -145,7 +142,7 @@
   <!-- RESOURCES -->
   <section id="resources" class="resources-section container">
     <h2 data-aos="fade-up">Resources</h2>
-    <div class="resource-grid" data-aos="fade-up" data-aos-delay="80">
+    <div class="resource-grid">
       <a class="resource-card" href="https://www.firstinspires.org/resource-library/ftc" target="_blank">FTC Official Resource Library</a>
       <a class="resource-card" href="https://www.firstinspires.org/resource-library/fll" target="_blank">FLL Official Resource Library</a>
       <a class="resource-card" href="https://www.firstinspires.org/robotics/ftc/game-and-season-info" target="_blank">FTC Game Manual</a>
@@ -154,7 +151,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="contact-section container" data-aos="fade-up">
+  <section id="contact" class="contact-section container">
     <h2>Contact Loki-Legends</h2>
     <p>Based at Taradale Intermediate, Napier, New Zealand. Reach out for questions, collaboration or events.</p>
     <ul class="contact-list">
@@ -165,6 +162,8 @@
     </ul>
   </section>
 
+  <div id="particles"></div>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
@@ -173,10 +172,9 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- JS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="main.js"></script>
-
+  <script> AOS.init({ once:true, duration:1000 }); </script>
 </body>
 </html>
-
