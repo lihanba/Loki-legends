@@ -59,7 +59,8 @@ nav a:hover{
 }
 
 .btn-signin:hover {
-    background-color: #d0cfcf;
+    background-color: #ff0000;
+    color: #ccc;
 }
 
 body {
