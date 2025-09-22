@@ -3,12 +3,17 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: #111;
-    color: #fff;
+    background-color: black;
+    color: #e7e7e7;
     perspective: 1000px;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    min-height: 100vh;
+    line-height: 1.5;
 }
+
+/*GRAIDENT */
+
 
 /* ---- Particles Background ---- */
 #particles {
