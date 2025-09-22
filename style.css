@@ -63,6 +63,63 @@ nav a:hover{
     color: #ccc;
 }
 
+/* MAIN CONTENT*/
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(90vh - 6rem);
+}
+
+.content{
+    max-width: 40rem;
+    margin-left: 10%;
+    z-index: 999;
+}
+
+.tag-box {
+    position: relative;
+    width: 20rem;
+    height: 3rem;
+    border-radius: 50px;
+    background: linear-gradient(to right, #656565, #7f42a7, #6600c5, #5300a0, #757575, #656565);
+    background-size: 200%;
+    animation: animationGradient 2.5 linear infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+@keyframes animationGradient{
+    to{
+        background-position: 200%;
+    }
+}
+
+.tag-box .tag{
+    position: absolute;
+    inset: 3px 3px 3px 3px;
+    background-color: #000;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.tag-box .tag:hover{
+    color: #6600c5;
+}
+
+.content h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin: 2rem 0;
+    line-height: 1.2;
+    text-shadow: 0 0 10px grey;
+}
+
+
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
