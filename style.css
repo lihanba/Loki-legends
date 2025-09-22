@@ -1,6 +1,6 @@
 /* =========================================
    Loki-Legends — Futuristic Red / Black / White
-   style.css — drop next to index.html
+   style.css
    ========================================= */
 
 /* Reset and base */
@@ -10,8 +10,6 @@ body {
   background: #000;
   color: #fff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1.45;
   overflow-x: hidden;
 }
@@ -48,141 +46,64 @@ body {
 
 /* Header buttons */
 .header-cta { display:flex; gap:10px; align-items:center; }
-.btn {
-  border: none;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-weight:700;
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-.btn-login {
-  background: #fff; color: #ff0000;
-  border: 2px solid rgba(255,0,0,0.06);
-}
-.btn-contact {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 6px 20px rgba(255,0,0,0.04) inset;
-}
+.btn { border: none; padding: 8px 14px; border-radius: 999px; font-weight:700; cursor: pointer; transition: transform .12s ease, box-shadow .12s ease; }
+.btn-login { background: #fff; color: #ff0000; border: 2px solid rgba(255,0,0,0.06); }
+.btn-contact { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 6px 20px rgba(255,0,0,0.04) inset; }
 .btn-login:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,0,0,0.12); }
 .btn-contact:hover { transform: translateY(-2px); color: #ff0000; border-color: rgba(255,0,0,0.12); }
 
-/* HERO */
-.hero-section {
-  padding: 140px 0 60px;
-  min-height: 680px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(6,6,6,0.98) 100%);
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 520px;
-  gap: 36px;
-  align-items: center;
-}
+/* Hero Section */
+.hero-section { padding: 140px 0 60px; min-height: 680px; background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(6,6,6,0.98)); }
+.hero-grid { display: grid; grid-template-columns: 1fr 520px; gap: 36px; align-items: center; }
 .hero-left { padding-right: 10px; }
-.tag-box .tag {
-  display:inline-block;
-  background: #ff0000; color:#fff; font-weight:800;
-  padding:6px 12px; border-radius:8px; letter-spacing:1px;
-  box-shadow: 0 10px 40px rgba(255,0,0,0.06);
-}
-.hero-title {
-  font-size: 3.4rem;
-  line-height: 1.02;
-  margin: 12px 0;
-  text-shadow: 0 0 20px rgba(255,0,0,0.28);
-}
+.tag-box .tag { display:inline-block; background: #ff0000; color:#fff; font-weight:800; padding:6px 12px; border-radius:8px; letter-spacing:1px; box-shadow: 0 10px 40px rgba(255,0,0,0.06); }
+.hero-title { font-size: 3.4rem; line-height: 1.02; margin: 12px 0; text-shadow: 0 0 20px rgba(255,0,0,0.28); }
 .hero-desc { color:#ddd; font-size:1.05rem; max-width:72ch; margin-bottom:12px; }
 .hero-buttons { display:flex; gap:12px; margin-top: 10px; }
-.btn-outline {
-  background: transparent;
-  border: 2px solid rgba(255,0,0,0.8);
-  color: #fff; padding: 12px 18px; border-radius: 999px; font-weight:700;
-}
+.btn-outline { background: transparent; border: 2px solid rgba(255,0,0,0.8); color: #fff; padding: 12px 18px; border-radius: 999px; font-weight:700; }
 .btn-outline:hover { background: #ff0000; color:#fff; transform: translateY(-4px); box-shadow: 0 20px 60px rgba(255,0,0,0.14); }
-.btn-primary {
-  background: #fff; color:#000; padding: 12px 18px; border-radius:999px; font-weight:700;
-}
+.btn-primary { background: #fff; color:#000; padding: 12px 18px; border-radius:999px; font-weight:700; }
 .btn-primary:hover { background: #ff0000; color:#fff; transform: translateY(-4px); }
 
-/* ROBOT COLUMN */
+/* Hero Right Robot */
 .hero-right { display:flex; flex-direction:column; align-items:center; gap:10px; }
-.robot-3d-wrapper {
-  width: 100%;
-  max-width: 520px;
-  height: 420px;
-  position: relative;
-  border-radius: 12px;
-  overflow: visible;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
-  border: 1px solid rgba(255,0,0,0.05);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
-  transform-style: preserve-3d;
-  transition: transform 160ms ease-out;
-}
-/* Target spline viewer with a class in case of needing overrides */
+.robot-3d-wrapper { width: 100%; max-width: 520px; height: 420px; position: relative; border-radius: 12px; overflow: visible; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03)); border: 1px solid rgba(255,0,0,0.05); box-shadow: 0 20px 60px rgba(0,0,0,0.65); transform-style: preserve-3d; transition: transform 160ms ease-out; }
 .robot-3d-wrapper spline-viewer { display:block; width:100%; height:100%; border-radius:12px; }
-
-/* glow and mouse trail over the viewer */
-.robot-glow {
-  position:absolute; left:-6%; top:8%; width:60%; height:72%;
-  border-radius:50%; filter: blur(36px);
-  background: radial-gradient(circle at 30% 40%, rgba(255,0,0,0.28), rgba(255,0,0,0.06) 30%, transparent 60%);
-  mix-blend-mode: screen; pointer-events:none;
-}
+.robot-glow { position:absolute; left:-6%; top:8%; width:60%; height:72%; border-radius:50%; filter: blur(36px); background: radial-gradient(circle at 30% 40%, rgba(255,0,0,0.28), rgba(255,0,0,0.06) 30%, transparent 60%); mix-blend-mode: screen; pointer-events:none; }
 .mouse-trail { position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:9; }
-
 .robot-caption { font-size:0.9rem; color:#f1f1f1; opacity:0.9; margin-top:6px; }
 
-/* TEAM */
+/* Team */
 .team-section { padding: 56px 0 32px; }
 .team-list { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:18px; margin-top:18px; list-style:none; }
-.team-list li {
-  background: linear-gradient(180deg,#0b0b0b,#0f0f0f);
-  padding:14px; border-radius:12px; text-align:center;
-  border: 1px solid rgba(255,0,0,0.06); transition: transform .28s ease, box-shadow .28s ease;
-}
+.team-list li { background: linear-gradient(180deg,#0b0b0b,#0f0f0f); padding:14px; border-radius:12px; text-align:center; border: 1px solid rgba(255,0,0,0.06); transition: transform .28s ease, box-shadow .28s ease; }
 .team-list li:hover { transform: translateY(-8px); box-shadow: 0 22px 60px rgba(255,0,0,0.06); }
 .team-list img { width:76px; height:76px; border-radius:50%; border:3px solid #ff0000; margin-bottom:8px; }
 
-/* GALLERY */
+/* Gallery */
 .gallery-section { padding: 36px 0; }
 .gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:14px; margin-top: 12px; }
 .gallery-item { background: linear-gradient(180deg,#0b0b0b,#101010); min-height:120px; border-radius:8px; border:1px solid rgba(255,0,0,0.06); box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
 
-/* VIDEOS */
+/* Videos */
 .videos-section { padding: 36px 0; }
 .video-wrap { margin-top:12px; border-radius:8px; overflow:hidden; border:1px solid rgba(255,0,0,0.06); }
 
-/* RESOURCES */
+/* Resources */
 .resources-section { padding: 36px 0; }
 .resource-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-top:12px; }
-.resource-card {
-  background: linear-gradient(180deg,#0c0c0c,#131313);
-  padding: 16px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,0,0,0.06);
-  font-weight:700;
-  color:#fff;
-  display:flex; align-items:center; justify-content:center;
-}
+.resource-card { background: linear-gradient(180deg,#0c0c0c,#131313); padding:16px; border-radius:10px; border:1px solid rgba(255,0,0,0.06); font-weight:700; color:#fff; display:flex; align-items:center; justify-content:center; }
 .resource-card:hover { transform: translateY(-6px); box-shadow: 0 26px 70px rgba(255,0,0,0.06); }
 
-/* CONTACT */
+/* Contact */
 .contact-section { padding: 36px 0; border-top: 1px solid rgba(255,0,0,0.03); margin-top: 12px; }
 .contact-list { list-style: none; margin-top:14px; }
 .contact-list li { margin-bottom:8px; color:#eee; }
 
-/* FOOTER */
+/* Footer */
 .site-footer { padding: 24px 0; margin-top: 24px; background: linear-gradient(180deg,#070707,#000); text-align:center; border-top: 1px solid rgba(255,0,0,0.05); color:#bbb; }
 
-/* AOS overrides for smoother feel */
-[data-aos] { opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1); }
-[data-aos].aos-animate { opacity:1; transform: translateY(0); }
-
-/* small screens */
+/* Responsive */
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; gap:18px; }
   .robot-3d-wrapper { height: 360px; max-width: 100%; }
@@ -190,10 +111,5 @@ body {
   .hero-title { font-size:2.4rem; }
   .header-cta { display:flex; gap:8px; }
   .header-inner { padding: 0 12px; }
-  .main-nav { display:none; } /* mobile: hide nav for simplicity */
+  .main-nav { display:none; }
 }
-
-/* Accessibility focus */
-a:focus, button:focus { outline: 2px dashed rgba(255,0,0,0.35); outline-offset: 4px; }
- 
-

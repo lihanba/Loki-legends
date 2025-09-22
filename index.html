@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Loki-Legends FTC Team</title>
 
-  <!-- Favicons (relative paths; place the files next to this HTML) -->
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -17,7 +17,7 @@
   <!-- AOS Animate on Scroll -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <!-- Spline 3D Viewer (keeps the 3D model interactive) -->
+  <!-- Spline 3D Viewer -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.64/build/spline-viewer.js"></script>
 </head>
 <body>
@@ -34,7 +34,6 @@
         </div>
       </div>
 
-      
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#team">Team</a>
         <a href="#gallery">Gallery</a>
@@ -49,7 +48,7 @@
     </div>
   </header>
 
-  <!-- HERO: text left, 3D robot right -->
+  <!-- HERO -->
   <section class="hero-section" id="home">
     <div class="container hero-grid">
       <div class="hero-left" data-aos="fade-right">
@@ -72,7 +71,6 @@
             style="width:100%; height:100%; display:block;">
           </spline-viewer>
 
-          <!-- subtle glow + mouse trail canvas -->
           <div class="robot-glow" aria-hidden="true"></div>
           <canvas id="mouseTrail" class="mouse-trail" aria-hidden="true"></canvas>
         </div>
@@ -155,13 +153,13 @@
     </div>
   </section>
 
-  <!-- CONTACT (target for Contact Us button) -->
+  <!-- CONTACT -->
   <section id="contact" class="contact-section container" data-aos="fade-up">
     <h2>Contact Loki-Legends</h2>
     <p>Based at Taradale Intermediate, Napier, New Zealand. Reach out for questions, collaboration or events.</p>
     <ul class="contact-list">
       <li><strong>School:</strong> Taradale Intermediate</li>
-      <li><strong>Address:</strong> 6 Murphy Road (or 8 Murphy Road if that's your preferred canonical), Taradale, Napier 4112</li>
+      <li><strong>Address:</strong> 6 Murphy Road, Taradale, Napier 4112</li>
       <li><strong>Phone:</strong> +64 6 844 7264</li>
       <li><strong>Email:</strong> <a href="mailto:office@taradaleint.school.nz">office@taradaleint.school.nz</a></li>
     </ul>
@@ -175,70 +173,9 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS: AOS + interactions -->
+  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({ offset: 160, duration: 900, easing: 'ease-in-out', once: false, mirror: true });
+  <script src="main.js"></script>
 
-    // Smooth scroll when pressing Contact Us header button
-    document.getElementById('contactBtn').addEventListener('click', () => {
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // Robot container parallax + mouse tilt
-    (function(){
-      const container = document.getElementById('robotContainer');
-      if(!container) return;
-      let mouseX = 0, mouseY = 0;
-      let tx = 0, ty = 0;
-      const friction = 1/12;
-
-      window.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth - 0.5) * 12;
-        mouseY = (e.clientY / window.innerHeight - 0.5) * 12;
-      });
-
-      window.addEventListener('scroll', () => {
-        const s = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-        container.style.transform = `translateY(${s * 20}px)`;
-      });
-
-      function anim(){
-        tx += (mouseY - tx) * friction;
-        ty += (mouseX - ty) * friction;
-        container.style.transform = `rotateX(${tx}deg) rotateY(${ty}deg)`;
-        requestAnimationFrame(anim);
-      }
-      anim();
-    })();
-
-    // Simple mouse trail on the robot canvas
-    (function(){
-      const canvas = document.getElementById('mouseTrail');
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      function setSize(){ canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-      setSize(); window.addEventListener('resize', setSize);
-      let dots = [];
-      window.addEventListener('mousemove', (e) => {
-        const r = canvas.getBoundingClientRect();
-        dots.push({ x: e.clientX - r.left, y: e.clientY - r.top, a: 1 });
-        if(dots.length > 25) dots.shift();
-      });
-      function draw(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        for(let i=0;i<dots.length;i++){
-          const d = dots[i];
-          ctx.beginPath();
-          ctx.fillStyle = `rgba(255,30,30,${d.a})`;
-          ctx.arc(d.x, d.y, (1 + i*0.6), 0, Math.PI*2);
-          ctx.fill();
-          d.a *= 0.92;
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-  </script>
 </body>
 </html>
