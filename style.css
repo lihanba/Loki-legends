@@ -1,4 +1,8 @@
 /* ---- General ---- */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -7,28 +11,27 @@ body {
     color: #e7e7e7;
     perspective: 1000px;
     scroll-behavior: smooth;
-    box-sizing: border-box;
     min-height: 100vh;
     line-height: 1.5;
 }
 
-/*GRAIDENT */
-.image-gradient{ 
+/* ---- Gradient / Layer Blur ---- */
+.image-gradient {
     position: absolute;
     top: 0;
     right: 0;
     opacity: 0.5;
     z-index: -1;
-
 }
-.layer-blur{
+
+.layer-blur {
     height: 0;
     width: 30rem;
     position: absolute;
     top: 20%;
     right: 0;
     box-shadow: 0 0 700px 15px rgb(211, 210, 210);
-    rotate: -30deg;
+    transform: rotate(-30deg);
     z-index: -1;
 }
 
