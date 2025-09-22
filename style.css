@@ -134,5 +134,110 @@ header p {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    margin
+    margin-top: 30px;
+}
 
+.gallery img {
+    width: 250px;
+    height: auto;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05) rotateY(10deg);
+    box-shadow: 0 0 25px #ff0000, 0 0 50px #ff5555;
+}
+
+/* ---- Stats ---- */
+.stats {
+    background: #222;
+    border: 2px solid #ff0000;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    margin: 50px 0;
+    animation: pulse 2s infinite;
+}
+
+.stats h3 {
+    color: #ff0000;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px #ff0000;
+}
+
+.stats .hours {
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 0 0 10px #ff5555;
+    animation: glowPulse 2s infinite alternate;
+}
+
+.countdown {
+    font-size: 2em;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff5555;
+    animation: glowPulse 2s infinite alternate;
+}
+
+/* ---- Resources ---- */
+.resources {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.resource-card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ff0000;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.resource-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.05);
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff5555;
+}
+
+.resource-card a {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.resource-card a:hover {
+    text-decoration: underline;
+}
+
+/* ---- Footer ---- */
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 30px 20px;
+    color: #ccc;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---- Particle Styles ---- */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: #ff0000;
+    opacity: 0.7;
+    pointer-events: none;
+}
