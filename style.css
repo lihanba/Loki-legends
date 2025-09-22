@@ -155,12 +155,14 @@ main {
     font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: 0.1em;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.btn-signin-main:hover{
+.btn-signin-main:hover {
     background-color: #ff0000;
+    color: #fff;
 }
+
 
 /* ---- Body ---- */
 body {
