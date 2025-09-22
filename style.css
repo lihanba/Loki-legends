@@ -7,6 +7,7 @@ body {
     color: #fff;
     perspective: 1000px;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 /* ---- Particles Background ---- */
