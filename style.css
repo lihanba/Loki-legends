@@ -1,6 +1,6 @@
 /* =========================================
-   Loki-Legends — Futuristic Red / Black / White
-   Ultra-modern CSS
+   Loki-Legends — Ultra-modern Red / Black / White
+   Full CSS
    ========================================= */
 
 /* RESET & BASE */
@@ -15,14 +15,34 @@ ul { list-style:none; }
 /* HEADER */
 .site-header {
   position:fixed; top:0; left:0; right:0;
-  height: 80rem;
+  height:80px;
   display:flex; align-items:center; justify-content:space-between;
   background:rgba(0,0,0,0.75); backdrop-filter:blur(6px);
   border-bottom:2px solid rgba(255,0,0,0.18); z-index:999;
 }
+
 .header-inner { display:flex; align-items:center; justify-content:space-between; width:100%; }
-.logo-container { display:flex; align-items:center; gap:12px; }
-.logo-img { height:56px; filter: drop-shadow(0 0 12px rgba(255,0,0,0.7)); border-radius:6px; }
+
+/* LOGOS */
+.logo-container {
+  display:flex; 
+  align-items:center; 
+  gap:12px;
+}
+.logo-img {
+  height:56px;
+  filter: drop-shadow(0 0 12px rgba(255,0,0,0.7));
+  border-radius:6px;
+}
+.secondary-logo {
+  height:48px;
+  filter: drop-shadow(0 0 8px rgba(255,0,0,0.5));
+}
+.brand-text {
+  display:flex;
+  flex-direction:column;
+  margin-left:8px;
+}
 .brand-title { color:#ff0000; font-weight:800; font-size:1.1rem; text-shadow:0 0 12px rgba(255,0,0,0.3); }
 .brand-sub { color:#eee; font-size:0.75rem; opacity:0.85; }
 
@@ -131,6 +151,8 @@ ul { list-style:none; }
   .hero-grid { grid-template-columns:1fr; gap:20px; }
   .robot-3d-wrapper { height:360px; max-width:100%; }
   .logo-img { height:48px; }
+  .secondary-logo { height:40px; }
   .hero-title { font-size:2.2rem; }
   .main-nav { display:none; }
+  .header-cta { gap:6px; }
 }
