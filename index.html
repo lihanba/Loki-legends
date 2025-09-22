@@ -4,26 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loki-Legends FTC Team</title>
-
-  <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Spline Viewer Script -->
+  <!-- Spline Viewer -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.64/build/spline-viewer.js"></script>
 </head>
 <body>
 
-  <!-- Background Gradient & Blur -->
+  <!-- Background & Robot Layer -->
   <section class="background-effect">
     <img class="image-gradient" src="gradient.png" alt="Gradient Background">
     <div class="layer-blur"></div>
+    <div class="robot-3d-container">
+      <spline-viewer url="https://prod.spline.design/cwPPqpu3564FG3qx/scene.splinecode"></spline-viewer>
+    </div>
   </section>
 
-  <!-- Header / Navigation -->
+  <!-- Header -->
   <header>
     <h1 class="logo">Loki-Legends</h1>
     <nav>
@@ -52,11 +51,6 @@
         <a href="https://www.firstinspires.org/robotics/ftc/start-a-team" class="btn-get-started">Start a team &gt;</a>
         <a href="#" class="btn-signing-main">Get Started &gt;</a>
       </div>
-    </div>
-
-    <!-- 3D Robot Viewer -->
-    <div class="robot-3d-container">
-      <spline-viewer url="https://prod.spline.design/cwPPqpu3564FG3qx/scene.splinecode"></spline-viewer>
     </div>
   </section>
 
@@ -91,7 +85,7 @@
     </ul>
   </section>
 
-  <!-- Gallery Section -->
+  <!-- Gallery -->
   <section class="gallery-section container animate-section">
     <h2>Robot & FLL/FTC Gallery</h2>
     <div class="gallery">
@@ -102,7 +96,7 @@
     </div>
   </section>
 
-  <!-- Resources Section -->
+  <!-- Resources -->
   <section class="resources-section container animate-section">
     <h2>Resources</h2>
     <div class="resources">
@@ -121,7 +115,6 @@
     &copy; 2025 Loki-Legends
   </footer>
 
-  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
