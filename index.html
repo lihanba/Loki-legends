@@ -1,147 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Loki-Legends FTC Team</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Favicons (relative paths; place the files next to this HTML) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- AOS Animate on Scroll -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <!-- Spline 3D Viewer -->
+  <!-- Spline 3D Viewer (keeps the 3D model interactive) -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.64/build/spline-viewer.js"></script>
 </head>
 <body>
 
-<!-- Header -->
-<header data-aos="fade-down">
-  <div class="logo-container">
-    <img src="logo.png" alt="Loki-Legends Logo" class="logo-img">
-    <h1 class="logo-text">Loki-Legends</h1>
-  </div>
-  <nav>
-    <a href="#">Team</a>
-    <a href="#">Gallery</a>
-    <a href="#">Videos</a>
-    <a href="#">Resources</a>
-  </nav>
-  <button class="btn-signin">Login</button>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section container">
-  <div class="hero-grid">
-    <!-- Text -->
-    <div class="hero-text" data-aos="fade-right">
-      <div class="tag-box">
-        <div class="tag">INTRODUCING ⩟</div>
+  <!-- HEADER -->
+  <header class="site-header" data-aos="fade-down">
+    <div class="container header-inner">
+      <div class="logo-container">
+        <img src="logo.png" alt="Loki-Legends Logo" class="logo-img" />
+        <div class="brand">
+          <div class="brand-title">Loki-Legends</div>
+          <div class="brand-sub">FTC Team — Taradale Intermediate</div>
+        </div>
       </div>
-      <h1>FTC Alumni<br>FOREVER</h1>
-      <p class="description">
-        FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots to complete yearly game challenges.
-        It blends engineering, programming, and teamwork while encouraging innovation, problem-solving, and community impact.
-      </p>
-      <div class="buttons">
-        <a href="https://www.firstinspires.org/robotics/ftc/start-a-team" class="btn-get-started">Start a team &gt;</a>
-        <a href="#" class="btn-signing-main">Get Started &gt;</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#team">Team</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#resources">Resources</a>
+      </nav>
+
+      <div class="header-cta">
+        <button class="btn btn-login">Login</button>
+        <button class="btn btn-contact" id="contactBtn">Contact Us</button>
       </div>
     </div>
+  </header>
 
-    <!-- Robot -->
-    <div class="robot-3d-container" id="robotContainer" data-aos="zoom-in-up">
-      <spline-viewer url="https://prod.spline.design/cwPPqpu3564FG3qx/scene.splinecode"></spline-viewer>
-      <div class="particle-overlay"></div>
+  <!-- HERO: text left, 3D robot right -->
+  <section class="hero-section" id="home">
+    <div class="container hero-grid">
+      <div class="hero-left" data-aos="fade-right">
+        <div class="tag-box"><span class="tag">INTRODUCING ⩟</span></div>
+        <h1 class="hero-title">FTC Alumni<br>FOREVER</h1>
+        <p class="hero-desc">
+          FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots to complete yearly game challenges.
+          It blends engineering, programming, and teamwork while encouraging innovation, problem-solving, and community impact.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-outline" href="https://www.firstinspires.org/robotics/ftc/start-a-team" target="_blank" rel="noopener">Start a team &gt;</a>
+          <a class="btn btn-primary" href="#resources">Get Started &gt;</a>
+        </div>
+      </div>
+
+      <div class="hero-right" data-aos="zoom-in-up">
+        <div id="robotContainer" class="robot-3d-wrapper" aria-hidden="true">
+          <spline-viewer id="robotSpline"
+            url="https://prod.spline.design/cwPPqpu3564FG3qx/scene.splinecode"
+            style="width:100%; height:100%; display:block;">
+          </spline-viewer>
+
+          <!-- subtle glow + mouse trail canvas -->
+          <div class="robot-glow" aria-hidden="true"></div>
+          <canvas id="mouseTrail" class="mouse-trail" aria-hidden="true"></canvas>
+        </div>
+        <div class="robot-caption">Loki-Legends — DECODE Bot</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Team Section -->
-<section class="team-section container animate-section">
-  <h2 data-aos="fade-up">Team Members</h2>
-  <ul class="team-list">
-    <li data-aos="flip-left" data-aos-delay="50">
-      <img src="https://via.placeholder.com/80" alt="Isla Buchanan">
-      <div class="team-info"><strong>Isla Buchanan</strong><span>FLL Alumni | Taradale Intermediate</span></div>
-    </li>
-    <li data-aos="flip-left" data-aos-delay="100">
-      <img src="https://via.placeholder.com/80" alt="Lily Wilson">
-      <div class="team-info"><strong>Lily Wilson</strong><span>FLL Alumni | Taradale Intermediate</span></div>
-    </li>
-    <li data-aos="flip-left" data-aos-delay="150">
-      <img src="https://via.placeholder.com/80" alt="Ella Fu">
-      <div class="team-info"><strong>Ella Fu</strong><span>FLL Alumni | Taradale Intermediate</span></div>
-    </li>
-    <li data-aos="flip-left" data-aos-delay="200">
-      <img src="https://via.placeholder.com/80" alt="Aida Hutchinson">
-      <div class="team-info"><strong>Aida Hutchinson</strong><span>FLL Alumni | Taradale Intermediate</span></div>
-    </li>
-    <li data-aos="flip-left" data-aos-delay="250">
-      <img src="https://via.placeholder.com/80" alt="Maia Richards">
-      <div class="team-info"><strong>Maia Richards</strong><span>FLL Alumni | Taradale Intermediate</span></div>
-    </li>
-    <li data-aos="flip-left" data-aos-delay="300">
-      <img src="https://via.placeholder.com/80" alt="Alexis Joblin">
-      <div class="team-info"><strong>Alexis Joblin</strong><span>FLL Alumni | Taradale Intermediate</span></div>
-    </li>
-  </ul>
-</section>
+  <!-- TEAM -->
+  <section id="team" class="team-section container">
+    <h2 data-aos="fade-up">Team Members</h2>
+    <p class="small-lead" data-aos="fade-up" data-aos-delay="80">Students and alumni from Taradale Intermediate — building robots and habits that stick.</p>
 
-<!-- Gallery -->
-<section class="gallery-section container animate-section">
-  <h2 data-aos="fade-up">Robot & FLL/FTC Gallery</h2>
-  <div class="gallery">
-    <img src="https://via.placeholder.com/250x150" alt="Robot Build 1" data-aos="zoom-in">
-    <img src="https://via.placeholder.com/250x150" alt="Robot Build 2" data-aos="zoom-in" data-aos-delay="50">
-    <img src="https://via.placeholder.com/250x150" alt="FLL Event 1" data-aos="zoom-in" data-aos-delay="100">
-    <img src="https://via.placeholder.com/250x150" alt="FTC Event 1" data-aos="zoom-in" data-aos-delay="150">
-  </div>
-</section>
+    <ul class="team-list" aria-label="Team members">
+      <li data-aos="flip-left" data-aos-delay="50">
+        <img src="https://via.placeholder.com/80" alt="Isla Buchanan">
+        <strong>Isla Buchanan</strong>
+        <span>FLL Alumni</span>
+      </li>
+      <li data-aos="flip-left" data-aos-delay="100">
+        <img src="https://via.placeholder.com/80" alt="Lily Wilson">
+        <strong>Lily Wilson</strong>
+        <span>FLL Alumni</span>
+      </li>
+      <li data-aos="flip-left" data-aos-delay="150">
+        <img src="https://via.placeholder.com/80" alt="Ella Fu">
+        <strong>Ella Fu</strong>
+        <span>FLL Alumni</span>
+      </li>
+      <li data-aos="flip-left" data-aos-delay="200">
+        <img src="https://via.placeholder.com/80" alt="Aida Hutchinson">
+        <strong>Aida Hutchinson</strong>
+        <span>FLL Alumni</span>
+      </li>
+      <li data-aos="flip-left" data-aos-delay="250">
+        <img src="https://via.placeholder.com/80" alt="Lihan Badenhorst">
+        <strong>Lihan Badenhorst</strong>
+        <span>Team Member</span>
+      </li>
+      <li data-aos="flip-left" data-aos-delay="300">
+        <img src="https://via.placeholder.com/80" alt="Maia Richards">
+        <strong>Maia Richards</strong>
+        <span>FLL Alumni</span>
+      </li>
+      <li data-aos="flip-left" data-aos-delay="350">
+        <img src="https://via.placeholder.com/80" alt="Alexis Joblin">
+        <strong>Alexis Joblin</strong>
+        <span>FLL Alumni</span>
+      </li>
+    </ul>
+  </section>
 
-<!-- Resources -->
-<section class="resources-section container animate-section">
-  <h2 data-aos="fade-up">Resources</h2>
-  <div class="resources">
-    <div class="resource-card" data-aos="fade-right" data-aos-delay="50">
-      <a href="https://www.firstinspires.org/resource-library/ftc" target="_blank">FTC Official Resource Library</a>
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery-section container">
+    <h2 data-aos="fade-up">Robot & FLL/FTC Gallery</h2>
+    <div class="gallery-grid" data-aos="zoom-in">
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
     </div>
-    <div class="resource-card" data-aos="fade-right" data-aos-delay="100">
-      <a href="https://www.firstinspires.org/resource-library/fll" target="_blank">FLL Official Resource Library</a>
-    </div>
-    <div class="resource-card" data-aos="fade-right" data-aos-delay="150">
-      <a href="https://www.youtube.com/playlist?list=PLEuGrYl8iBm6MUAG3tbwpDcuS8O6_yWtV" target="_blank">DECODE Reveal Video Playlist</a>
-    </div>
-    <div class="resource-card" data-aos="fade-right" data-aos-delay="200">
-      <a href="https://www.firstinspires.org/robotics/ftc/game-and-season-info" target="_blank">FTC Game Manual</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer data-aos="fade-up">
-  <p>Taradale Intermediate</p>
-  <p>Address: 6 Murphy Road, Taradale, Napier 4112 | Phone: 06 844 7264</p>
-  <p>
-    <a href="https://www.taradaleint.school.nz" target="_blank">Website</a> | 
-    <a href="https://www.facebook.com/taradaleintermediateschool" target="_blank">Facebook</a>
-  </p>
-  &copy; 2025 Loki-Legends
-</footer>
+  <!-- VIDEOS -->
+  <section id="videos" class="videos-section container">
+    <h2 data-aos="fade-up">DECODE Reveal & Practice</h2>
+    <div class="video-wrap" data-aos="fade-up" data-aos-delay="60">
+      <iframe width="100%" height="420" src="https://www.youtube.com/embed/videoseries?list=PLEuGrYl8iBm6MUAG3tbwpDcuS8O6_yWtV" frameborder="0" allowfullscreen title="DECODE playlist"></iframe>
+    </div>
+  </section>
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init({ offset: 200, duration: 1200, easing: 'ease-in-out', once: false, mirror: true });
+  <!-- RESOURCES -->
+  <section id="resources" class="resources-section container">
+    <h2 data-aos="fade-up">Resources</h2>
+    <div class="resource-grid" data-aos="fade-up" data-aos-delay="80">
+      <a class="resource-card" href="https://www.firstinspires.org/resource-library/ftc" target="_blank">FTC Official Resource Library</a>
+      <a class="resource-card" href="https://www.firstinspires.org/resource-library/fll" target="_blank">FLL Official Resource Library</a>
+      <a class="resource-card" href="https://www.firstinspires.org/robotics/ftc/game-and-season-info" target="_blank">FTC Game Manual</a>
+      <a class="resource-card" href="https://www.youtube.com/playlist?list=PLEuGrYl8iBm6MUAG3tbwpDcuS8O6_yWtV" target="_blank">DECODE Reveal Playlist</a>
+    </div>
+  </section>
 
-  const robotContainer = document.querySelector('#robotContainer');
-  window.addEventListener('scroll', () => {
-    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    robotContainer.style.transform = `translateY(${scrollPercent * 30}px)`;
-  });
-  window.addEventListener('mousemove', (e) => {
-    const rotateX = (e.clientY / window.innerHeight - 0.5) * 15;
-    const rotateY = (e.clientX / window.innerWidth - 0.5) * 15;
-    robotContainer.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
-</script>
+  <!-- CONTACT (target for Contact Us button) -->
+  <section id="contact" class="contact-section container" data-aos="fade-up">
+    <h2>Contact Loki-Legends</h2>
+    <p>Based at Taradale Intermediate, Napier, New Zealand. Reach out for questions, collaboration or events.</p>
+    <ul class="contact-list">
+      <li><strong>School:</strong> Taradale Intermediate</li>
+      <li><strong>Address:</strong> 6 Murphy Road (or 8 Murphy Road if that's your preferred canonical), Taradale, Napier 4112</li>
+      <li><strong>Phone:</strong> +64 6 844 7264</li>
+      <li><strong>Email:</strong> <a href="mailto:office@taradaleint.school.nz">office@taradaleint.school.nz</a></li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Loki-Legends FTC Team — Taradale Intermediate</p>
+      <small>Made with code and caffeine. Please don't steal the robot.</small>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS: AOS + interactions -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ offset: 160, duration: 900, easing: 'ease-in-out', once: false, mirror: true });
+
+    // Smooth scroll when pressing Contact Us header button
+    document.getElementById('contactBtn').addEventListener('click', () => {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Robot container parallax + mouse tilt
+    (function(){
+      const container = document.getElementById('robotContainer');
+      if(!container) return;
+      let mouseX = 0, mouseY = 0;
+      let tx = 0, ty = 0;
+      const friction = 1/12;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 12;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 12;
+      });
+
+      window.addEventListener('scroll', () => {
+        const s = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        container.style.transform = `translateY(${s * 20}px)`;
+      });
+
+      function anim(){
+        tx += (mouseY - tx) * friction;
+        ty += (mouseX - ty) * friction;
+        container.style.transform = `rotateX(${tx}deg) rotateY(${ty}deg)`;
+        requestAnimationFrame(anim);
+      }
+      anim();
+    })();
+
+    // Simple mouse trail on the robot canvas
+    (function(){
+      const canvas = document.getElementById('mouseTrail');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      function setSize(){ canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+      setSize(); window.addEventListener('resize', setSize);
+      let dots = [];
+      window.addEventListener('mousemove', (e) => {
+        const r = canvas.getBoundingClientRect();
+        dots.push({ x: e.clientX - r.left, y: e.clientY - r.top, a: 1 });
+        if(dots.length > 25) dots.shift();
+      });
+      function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(let i=0;i<dots.length;i++){
+          const d = dots[i];
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255,30,30,${d.a})`;
+          ctx.arc(d.x, d.y, (1 + i*0.6), 0, Math.PI*2);
+          ctx.fill();
+          d.a *= 0.92;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
 </body>
 </html>
