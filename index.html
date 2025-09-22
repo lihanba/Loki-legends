@@ -9,167 +9,119 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-  <!-- External CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-</head>
 
+  <!-- Spline Viewer Script -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.64/build/spline-viewer.js"></script>
+</head>
 <body>
-  <!-- Top Gradient & Blur Section -->
+
+  <!-- Background Gradient & Blur -->
   <section class="background-effect">
     <img class="image-gradient" src="gradient.png" alt="Gradient Background">
     <div class="layer-blur"></div>
   </section>
 
-  <!-- Navigation/Header -->
-  <div class="container">
-    <header>
-      <h1 class="logo">Loki-Legends</h1>
-      <nav>
-        <a href="#">Team</a>
-        <a href="#">Gallery</a>
-        <a href="#">Videos</a>
-        <a href="#">Resources</a>
-      </nav>
-      <button class="btn-signin">Login</button>
-    </header>
+  <!-- Header / Navigation -->
+  <header>
+    <h1 class="logo">Loki-Legends</h1>
+    <nav>
+      <a href="#">Team</a>
+      <a href="#">Gallery</a>
+      <a href="#">Videos</a>
+      <a href="#">Resources</a>
+    </nav>
+    <button class="btn-signin">Login</button>
+  </header>
 
-    <main>
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="tag-box">
-          <div class="tag">INTRODUCING &wedbar;</div>
-        </div>
-        <h1>FTC Alumni<br>FOREVER</h1>
-        <p class="description">
-          FTC (FIRST Tech Challenge) is a global robotics competition
-          where students design, build, 
-          and code robots to complete yearly game challenges.
-          It blends engineering, programming, 
-          and teamwork while encouraging innovation,
-          problem-solving, and community impact.
-        </p>
-        <div class="buttons">
-          <a href="https://www.firstinspires.org/robotics/ftc/start-a-team" class="btn-get-started">Start a team &gt;</a>
-          <a href="#" class="btn-signing-main">Get Started &gt;</a>
-        </div>
-      </section>
+  <!-- Hero Section -->
+  <section class="hero-section container">
+    <div class="hero-text">
+      <div class="tag-box">
+        <div class="tag">INTRODUCING &wedbar;</div>
+      </div>
+      <h1>FTC Alumni<br>FOREVER</h1>
+      <p class="description">
+        FTC (FIRST Tech Challenge) is a global robotics competition
+        where students design, build, and code robots to complete yearly game challenges.
+        It blends engineering, programming, and teamwork while encouraging innovation,
+        problem-solving, and community impact.
+      </p>
+      <div class="buttons">
+        <a href="https://www.firstinspires.org/robotics/ftc/start-a-team" class="btn-get-started">Start a team &gt;</a>
+        <a href="#" class="btn-signing-main">Get Started &gt;</a>
+      </div>
+    </div>
 
-      <!-- Team Members -->
-      <section class="animate-section team-section">
-        <h2>Team Members</h2>
-        <ul class="team-list">
-          <li>
-            <img src="https://via.placeholder.com/80" alt="Isla Buchanan">
-            <div class="team-info">
-              <strong>Isla Buchanan</strong>
-              <span>FLL Alumni | Taradale Intermediate</span>
-            </div>
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/80" alt="Lily Wilson">
-            <div class="team-info">
-              <strong>Lily Wilson</strong>
-              <span>FLL Alumni | Taradale Intermediate</span>
-            </div>
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/80" alt="Ella Fu">
-            <div class="team-info">
-              <strong>Ella Fu</strong>
-              <span>FLL Alumni | Taradale Intermediate</span>
-            </div>
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/80" alt="Aida Hutchinson">
-            <div class="team-info">
-              <strong>Aida Hutchinson</strong>
-              <span>FLL Alumni | Taradale Intermediate</span>
-            </div>
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/80" alt="Maia Richards">
-            <div class="team-info">
-              <strong>Maia Richards</strong>
-              <span>FLL Alumni | Taradale Intermediate</span>
-            </div>
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/80" alt="Alexis Joblin">
-            <div class="team-info">
-              <strong>Alexis Joblin</strong>
-              <span>FLL Alumni | Taradale Intermediate</span>
-            </div>
-          </li>
-        </ul>
-      </section>
+    <!-- 3D Robot Viewer -->
+    <div class="robot-3d-container">
+      <spline-viewer url="https://prod.spline.design/cwPPqpu3564FG3qx/scene.splinecode"></spline-viewer>
+    </div>
+  </section>
 
-      <!-- Gallery -->
-      <section class="animate-section">
-        <h2>Robot & FLL/FTC Gallery</h2>
-        <div class="gallery">
-          <img src="https://via.placeholder.com/250x150" alt="Robot Build 1">
-          <img src="https://via.placeholder.com/250x150" alt="Robot Build 2">
-          <img src="https://via.placeholder.com/250x150" alt="FLL Event 1">
-          <img src="https://via.placeholder.com/250x150" alt="FTC Event 1">
-        </div>
-      </section>
+  <!-- Team Section -->
+  <section class="team-section container animate-section">
+    <h2>Team Members</h2>
+    <ul class="team-list">
+      <li>
+        <img src="https://via.placeholder.com/80" alt="Isla Buchanan">
+        <div class="team-info"><strong>Isla Buchanan</strong><span>FLL Alumni | Taradale Intermediate</span></div>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/80" alt="Lily Wilson">
+        <div class="team-info"><strong>Lily Wilson</strong><span>FLL Alumni | Taradale Intermediate</span></div>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/80" alt="Ella Fu">
+        <div class="team-info"><strong>Ella Fu</strong><span>FLL Alumni | Taradale Intermediate</span></div>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/80" alt="Aida Hutchinson">
+        <div class="team-info"><strong>Aida Hutchinson</strong><span>FLL Alumni | Taradale Intermediate</span></div>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/80" alt="Maia Richards">
+        <div class="team-info"><strong>Maia Richards</strong><span>FLL Alumni | Taradale Intermediate</span></div>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/80" alt="Alexis Joblin">
+        <div class="team-info"><strong>Alexis Joblin</strong><span>FLL Alumni | Taradale Intermediate</span></div>
+      </li>
+    </ul>
+  </section>
 
-      <!-- DECODE Videos -->
-      <section class="animate-section">
-        <h2>DECODE Reveal Videos</h2>
-        <iframe width="100%" height="500"
-          src="https://www.youtube.com/embed/videoseries?list=PLEuGrYl8iBm6MUAG3tbwpDcuS8O6_yWtV"
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </section>
+  <!-- Gallery Section -->
+  <section class="gallery-section container animate-section">
+    <h2>Robot & FLL/FTC Gallery</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/250x150" alt="Robot Build 1">
+      <img src="https://via.placeholder.com/250x150" alt="Robot Build 2">
+      <img src="https://via.placeholder.com/250x150" alt="FLL Event 1">
+      <img src="https://via.placeholder.com/250x150" alt="FTC Event 1">
+    </div>
+  </section>
 
-      <!-- Stats -->
-      <section class="animate-section">
-        <div class="stats">
-          <h3>50+ Hours Spent Developing & Improving Our Robot</h3>
-          <div class="hours" id="hours">0</div>
-          <p>Countdown to FTC Nationals – 13th & 14th Dec 2025, Hastings, NZ</p>
-          <div class="countdown" id="countdown">Loading...</div>
-        </div>
-      </section>
+  <!-- Resources Section -->
+  <section class="resources-section container animate-section">
+    <h2>Resources</h2>
+    <div class="resources">
+      <div class="resource-card"><a href="https://www.firstinspires.org/resource-library/ftc" target="_blank">FTC Official Resource Library</a></div>
+      <div class="resource-card"><a href="https://www.firstinspires.org/resource-library/fll" target="_blank">FLL Official Resource Library</a></div>
+      <div class="resource-card"><a href="https://www.youtube.com/playlist?list=PLEuGrYl8iBm6MUAG3tbwpDcuS8O6_yWtV" target="_blank">DECODE Reveal Video Playlist</a></div>
+      <div class="resource-card"><a href="https://www.firstinspires.org/robotics/ftc/game-and-season-info" target="_blank">FTC Game Manual</a></div>
+    </div>
+  </section>
 
-      <!-- Resources -->
-      <section class="animate-section">
-        <h2>Resources</h2>
-        <div class="resources">
-          <div class="resource-card">
-            <a href="https://www.firstinspires.org/resource-library/ftc" target="_blank">FTC Official Resource Library</a>
-          </div>
-          <div class="resource-card">
-            <a href="https://www.firstinspires.org/resource-library/fll" target="_blank">FLL Official Resource Library</a>
-          </div>
-          <div class="resource-card">
-            <a href="https://www.youtube.com/playlist?list=PLEuGrYl8iBm6MUAG3tbwpDcuS8O6_yWtV" target="_blank">DECODE Reveal Video Playlist</a>
-          </div>
-          <div class="resource-card">
-            <a href="https://www.firstinspires.org/robotics/ftc/game-and-season-info" target="_blank">FTC Game Manual</a>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-  
-<spline-viewer class="robor-3d" url="https://prod.spline.design/0ydW2HErSDxYN5D9/scene.splinecode"></spline-viewer>
-
-</div>
-
+  <!-- Footer -->
   <footer>
     <p>Taradale Intermediate</p>
     <p>Address: 6 Murphy Road, Taradale, Napier 4112 | Phone: 06 844 7264</p>
-    <p>
-      <a href="https://www.taradaleint.school.nz" target="_blank">Website</a> |
-      <a href="https://www.facebook.com/taradaleintermediateschool" target="_blank">Facebook</a>
-    </p>
+    <p><a href="https://www.taradaleint.school.nz" target="_blank">Website</a> | <a href="https://www.facebook.com/taradaleintermediateschool" target="_blank">Facebook</a></p>
     &copy; 2025 Loki-Legends
   </footer>
 
+  <!-- JS -->
   <script src="script.js"></script>
-
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.64/build/spline-viewer.js"></script>
- 
 </body>
 </html>
