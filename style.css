@@ -146,7 +146,7 @@ main {
 }
 
 /* Fixed missing dot here */
-.btn-signin-main {
+.btn-signing-main {
     text-decoration: none;
     background-color: lightgray;
     color: black;
@@ -158,7 +158,7 @@ main {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.btn-signin-main:hover {
+.btn-signing-main:hover {
     background-color: #ff0000;
     color: #fff;
 }
