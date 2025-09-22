@@ -118,6 +118,30 @@ main{
     text-shadow: 0 0 10px grey;
 }
 
+.description {
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    max-width: 40rem;
+    color: #656565;
+
+}
+
+.buttons{
+    background-color: #ccc;
+    color: #ff0000;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    transition: background-color o.2 ease;
+    cursor: pointer;
+
+}
+
+.buttons:hover{
+    background-color: #ff0000;
+    color: #ccc;
+}
 
 
 body {
