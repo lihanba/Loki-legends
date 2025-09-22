@@ -1,431 +1,56 @@
 /* ---- General ---- */
-* {
-    box-sizing: border-box;
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+    color: #e7e7e7;
+    scroll-behavior: smooth;
 }
 
 /* Container */
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
-    position: relative;
-    overflow: hidden;
-}
+.container { width: 100%; margin:0 auto; padding:0 2rem; position: relative; overflow: hidden; }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5rem;
-    z-index: 999;
-}
+/* Header */
+header { display:flex; justify-content:space-between; align-items:center; padding:1rem 5rem; position: relative; z-index: 10; background-color: #000;}
+header h1 { color:#ff0000; font-size:3em; text-shadow:0 0 10px #ff0000;}
+nav a { text-decoration:none; color:#e7e7e7; margin-left:20px; transition:0.3s;}
+nav a:hover { color:#ff5555; }
+.btn-signin { background:#ccc; color:#ff0000; padding:0.8rem 2rem; border-radius:50px; border:none; cursor:pointer; }
+.btn-signin:hover { background:#ff0000; color:#ccc; }
 
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: 300;
-}
+/* Hero */
+.hero { margin-top:60px; max-width:600px; }
+.hero h1 { font-size:4rem; line-height:1.2; text-shadow:0 0 10px grey; margin:1rem 0; }
+.description { color:#ccc; font-size:1.2rem; line-height:1.5; }
+.buttons { margin-top:2rem; display:flex; gap:1rem; }
+.btn-get-started, .btn-signing-main { border-radius:50px; padding:0.7rem 1.2rem; text-decoration:none; font-weight:600; transition:0.3s; }
+.btn-get-started { border:1px solid white; color:white;}
+.btn-get-started:hover { background:#1a1a1a; }
+.btn-signing-main { background:lightgray; color:black;}
+.btn-signing-main:hover { background:#ff0000; color:white; }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    margin-left: -5%;
-}
+/* Background Gradient & Blur */
+.image-gradient { position:absolute; top:0; left:0; width:100%; opacity:0.5; z-index:0; }
+.layer-blur { position:absolute; top:20%; right:0; width:30rem; height:0; box-shadow:0 0 700px 15px rgb(211,210,210); transform:rotate(-30deg); z-index:0; }
 
-nav a {
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-    transition: color 0.2s ease;
-    text-decoration: none;
-    color: #e7e7e7;
-}
+/* 3D Robot Viewer */
+.robot-3d-container { position:absolute; top:0; right:0; width:40%; height:600px; z-index:1; }
+.robot-3d-container spline-viewer { width:100%; height:100%; }
 
-nav a:hover {
-    color: #a7a7a7;
-}
+/* Team Section */
+.team-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:25px; list-style:none; }
+.team-list li { background:#1a1a1a; padding:25px; border-radius:15px; text-align:center; border:2px solid #ff0000; cursor:pointer; transition:transform 0.5s, box-shadow 0.3s; }
+.team-list li:hover { transform:scale(1.05); box-shadow:0 0 20px #ff0000,0 0 40px #ff5555; }
+.team-list li img { width:80px; height:80px; border-radius:50%; border:2px solid #ff0000; transition:0.3s; }
+.team-list li img:hover { transform:scale(1.1); box-shadow:0 0 20px #ff0000,0 0 40px #ff5555; }
 
-.btn-signin {
-    background-color: #ccc;
-    color: #ff0000;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    border: none;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
-}
+/* Gallery */
+.gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:30px; }
+.gallery img { width:250px; height:auto; border-radius:10px; border:2px solid #ff0000; transition:0.3s;}
+.gallery img:hover { transform:scale(1.05); box-shadow:0 0 25px #ff0000,0 0 50px #ff5555; }
 
-.btn-signin:hover {
-    background-color: #ff0000;
-    color: #ccc;
-}
-
-/* MAIN CONTENT */
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: calc(90vh - 6rem);
-}
-
-.content {
-    max-width: 40rem;
-    margin-left: 10%;
-    z-index: 999;
-}
-
-.tag-box {
-    position: relative;
-    width: 20rem;
-    height: 3rem;
-    border-radius: 50px;
-    background: linear-gradient(to right, #656565, #7f42a7, #6600c5, #5300a0, #757575, #656565);
-    background-size: 200%;
-    animation: animationGradient 5s linear infinite;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-@keyframes animationGradient {
-    to {
-        background-position: 200%;
-    }
-}
-
-.tag-box .tag {
-    position: absolute;
-    inset: 3px;
-    background-color: #000;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s ease;
-    cursor: pointer;
-}
-
-.tag-box .tag:hover {
-    color: #6600c5;
-}
-
-.content h1 {
-    font-size: 4rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    margin: 2rem 0;
-    line-height: 1.2;
-    text-shadow: 0 0 10px grey;
-}
-
-.description {
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
-    max-width: 40rem;
-    color: #656565;
-}
-
-.buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 3rem;
-}
-
-.btn-get-started {
-    text-decoration: none;
-    border: 1px solid white;
-    padding: 0.7rem 1.2rem;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.btn-get-started:hover {
-    background-color: #1a1a1a;
-}
-
-/* Fixed missing dot here */
-.btn-signing-main {
-    text-decoration: none;
-    background-color: lightgray;
-    color: black;
-    padding: 0.6rem 2.5rem;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.btn-signing-main:hover {
-    background-color: #ff0000;
-    color: #fff;
-}
-
-
-/* ---- Body ---- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    color: #e7e7e7;
-    perspective: 1000px;
-    scroll-behavior: smooth;
-    min-height: 100vh;
-    line-height: 1.5;
-}
-
-/* ---- Gradient / Layer Blur ---- */
-.image-gradient {
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0.5;
-    z-index: -1;
-}
-
-.layer-blur {
-    height: 0;
-    width: 30rem;
-    position: absolute;
-    top: 20%;
-    right: 0;
-    box-shadow: 0 0 700px 15px rgb(211, 210, 210);
-    transform: rotate(-30deg);
-    z-index: -1;
-}
-
-/* ---- Particles Background ---- */
-#particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-/* ---- Header ---- */
-header {
-    background-color: #000;
-    padding: 60px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-header img {
-    max-width: 120px;
-    margin-bottom: 20px;
-    transition: transform 0.5s;
-}
-
-header img:hover {
-    transform: rotate(15deg) scale(1.1);
-}
-
-header h1 {
-    font-size: 3em;
-    color: #ff0000;
-    margin: 0;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px #ff0000;
-    animation: pulse 2s infinite;
-}
-
-header p {
-    margin-top: 10px;
-    color: #ccc;
-    font-size: 1.2em;
-}
-
-@keyframes pulse {
-    0% { text-shadow: 0 0 5px #ff0000; }
-    50% { text-shadow: 0 0 25px #ff5555; }
-    100% { text-shadow: 0 0 5px #ff0000; }
-}
-
-/* ---- Scroll Animations ---- */
-.animate-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease-out;
-}
-
-.animate-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ---- Team Members ---- */
-.team-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 25px;
-    list-style: none;
-    padding: 0;
-}
-
-.team-list li {
-    background: #1a1a1a;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 1.2em;
-    transition: transform 0.5s, box-shadow 0.3s;
-    cursor: pointer;
-    border: 2px solid #ff0000;
-    animation: glowPulse 3s infinite alternate;
-    position: relative;
-    transform-style: preserve-3d;
-}
-
-.team-list li::after {
-    content: "FLL Alumni";
-    display: block;
-    margin-top: 8px;
-    font-size: 0.8em;
-    color: #ff0000;
-    text-shadow: 0 0 5px #ff5555;
-}
-
-.team-list li:hover {
-    transform: rotateX(10deg) rotateY(10deg) translateY(-10px) scale(1.05);
-    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff5555;
-}
-
-.team-list li img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 2px solid #ff0000;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.team-list li img:hover {
-    transform: scale(1.1) rotateY(15deg);
-    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff5555;
-}
-
-@keyframes glowPulse {
-    0% { box-shadow: 0 0 10px #ff0000; }
-    50% { box-shadow: 0 0 25px #ff5555, 0 0 50px #ff7777; }
-    100% { box-shadow: 0 0 10px #ff0000; }
-}
-
-/* ---- Gallery ---- */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.gallery img {
-    width: 250px;
-    height: auto;
-    border: 2px solid #ff0000;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05) rotateY(10deg);
-    box-shadow: 0 0 25px #ff0000, 0 0 50px #ff5555;
-}
-
-/* ---- Stats ---- */
-.stats {
-    background: #222;
-    border: 2px solid #ff0000;
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    margin: 50px 0;
-    animation: pulse 2s infinite;
-}
-
-.stats h3 {
-    color: #ff0000;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px #ff0000;
-}
-
-.stats .hours {
-    font-size: 2em;
-    color: #fff;
-    text-shadow: 0 0 10px #ff5555;
-    animation: glowPulse 2s infinite alternate;
-}
-
-.countdown {
-    font-size: 2em;
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff5555;
-    animation: glowPulse 2s infinite alternate;
-}
-
-/* ---- Resources ---- */
-.resources {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-.resource-card {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 15px;
-    border: 2px solid #ff0000;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.resource-card:hover {
-    transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.05);
-    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff5555;
-}
-
-.resource-card a {
-    color: #ff0000;
-    text-decoration: none;
-}
-
-.resource-card a:hover {
-    text-decoration: underline;
-}
-
-/* ---- Footer ---- */
-footer {
-    background-color: #000;
-    text-align: center;
-    padding: 30px 20px;
-    color: #ccc;
-    margin-top: 50px;
-    font-size: 0.9em;
-}
-
-footer a {
-    color: #ff0000;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* ---- Particle Styles ---- */
-.particle {
-    position: absolute;
-    border-radius: 50%;
-    background: #ff0000;
-    opacity: 0.7;
-    pointer-events: none;
-}
+/* Footer */
+footer { text-align:center; padding:30px 20px; background:#000; color:#ccc; margin-top:50px; }
+footer a { color:#ff0000; text-decoration:none; }
+footer a:hover { text-decoration:underline; }
