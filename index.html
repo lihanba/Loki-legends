@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loki-Legends FTC Team</title>
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #111; /* Black background */
+        color: #fff; /* White text */
+    }
+
+    header {
+        background-color: #000;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    header img {
+        max-width: 120px;
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 3em;
+        color: #ff0000; /* Red title */
+        margin: 0;
+        letter-spacing: 2px;
+    }
+
+    header p {
+        margin-top: 10px;
+        color: #ccc;
+        font-size: 1.2em;
+    }
+
+    main {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    h2 {
+        color: #ff0000; /* Red headings */
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2em;
+    }
+
+    /* Team List Styles */
+    .team-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .team-list li {
+        background: #1a1a1a; /* Dark gray/black card */
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 1.2em;
+        transition: transform 0.3s, background 0.3s, color 0.3s;
+        cursor: pointer;
+        position: relative;
+        border: 2px solid #ff0000; /* Red border */
+    }
+
+    .team-list li:hover {
+        background: #ff0000; /* Red on hover */
+        color: #fff; /* White text on hover */
+        transform: translateY(-10px) scale(1.05);
+    }
+
+    /* Tooltip for more info */
+    .team-list li span {
+        display: none;
+        font-size: 0.9em;
+        margin-top: 10px;
+        color: #fff;
+    }
+
+    .team-list li:hover span {
+        display: block;
+    }
+
+    /* Footer Styles */
+    footer {
+        background-color: #000;
+        text-align: center;
+        padding: 30px 20px;
+        color: #ccc;
+        margin-top: 50px;
+        font-size: 0.9em;
+    }
+
+    footer a {
+        color: #ff0000; /* Red links */
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Loki-Legends Logo">
+    <h1>Loki-Legends</h1>
+    <p>First-year FTC Team | Website by Lihan Badenhorst</p>
+</header>
+
+<main>
+    <h2>Team Members</h2>
+    <ul class="team-list">
+        <li>Isla Buchanan <span>From Taradale Intermediate</span></li>
+        <li>Lily Wilson <span>From Taradale Intermediate</span></li>
+        <li>Ella Fu <span>From Taradale Intermediate</span></li>
+        <li>Aida Hutchinson <span>From Taradale Intermediate</span></li>
+        <li>Lihan Badenhorst <span>From Taradale Intermediate</span></li>
+        <li>Maia Richards <span>From Taradale Intermediate</span></li>
+        <li>Alexis Joblin <span>From Taradale Intermediate</span></li>
+    </ul>
+</main>
+
+<footer>
+    <p>Taradale Intermediate</p>
+    <p>Address: 6 Murphy Road, Taradale, Napier 4112 | Phone: 06 844 7264</p>
+    <p>
+        <a href="https://www.taradaleint.school.nz" target="_blank">Website</a> | 
+        <a href="https://www.facebook.com/taradaleintermediateschool" target="_blank">Facebook</a>
+    </p>
+    &copy; 2025 Loki-Legends
+</footer>
+
+</body>
+</html>
