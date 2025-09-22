@@ -127,21 +127,12 @@ main{
 }
 
 .buttons{
-    background-color: #ccc;
-    color: #ff0000;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    border: none;
-    font-weight: 600;
-    transition: background-color o.2 ease;
-    cursor: pointer;
+    display: flex;
+    gap: 1rem;
 
 }
 
-.buttons:hover{
-    background-color: #ff0000;
-    color: #ccc;
-}
+.btn-get-started
 
 
 body {
