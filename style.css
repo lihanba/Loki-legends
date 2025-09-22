@@ -1,1 +1,138 @@
+/* ---- General ---- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #fff;
+    perspective: 1000px;
+    scroll-behavior: smooth;
+}
+
+/* ---- Particles Background ---- */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* ---- Header ---- */
+header {
+    background-color: #000;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header img {
+    max-width: 120px;
+    margin-bottom: 20px;
+    transition: transform 0.5s;
+}
+
+header img:hover {
+    transform: rotate(15deg) scale(1.1);
+}
+
+header h1 {
+    font-size: 3em;
+    color: #ff0000;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff0000;
+    animation: pulse 2s infinite;
+}
+
+header p {
+    margin-top: 10px;
+    color: #ccc;
+    font-size: 1.2em;
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 5px #ff0000; }
+    50% { text-shadow: 0 0 25px #ff5555; }
+    100% { text-shadow: 0 0 5px #ff0000; }
+}
+
+/* ---- Scroll Animations ---- */
+.animate-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.animate-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---- Team Members ---- */
+.team-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+}
+
+.team-list li {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: transform 0.5s, box-shadow 0.3s;
+    cursor: pointer;
+    border: 2px solid #ff0000;
+    animation: glowPulse 3s infinite alternate;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.team-list li::after {
+    content: "FLL Alumni";
+    display: block;
+    margin-top: 8px;
+    font-size: 0.8em;
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff5555;
+}
+
+.team-list li:hover {
+    transform: rotateX(10deg) rotateY(10deg) translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff5555;
+}
+
+.team-list li img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid #ff0000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-list li img:hover {
+    transform: scale(1.1) rotateY(15deg);
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff5555;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px #ff0000; }
+    50% { box-shadow: 0 0 25px #ff5555, 0 0 50px #ff7777; }
+    100% { box-shadow: 0 0 10px #ff0000; }
+}
+
+/* ---- Gallery ---- */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin
 
