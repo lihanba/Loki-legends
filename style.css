@@ -3,6 +3,45 @@
     box-sizing: border-box;
 }
 
+/*container*/
+.container{
+ width: 100%;
+ margin: 0 auto;
+ padding: 0 2rem;
+ position: relative;
+ overflow: hidden;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+    z-index: 999;
+}
+
+
+header h1{
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-left: -5%;
+}
+
+nav a {
+    font-size: 1rem;
+    letter-spacing: 0.1rem ;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    color: #e7e7e7;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
