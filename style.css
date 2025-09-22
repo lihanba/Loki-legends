@@ -42,6 +42,26 @@ nav a {
     color: #e7e7e7;
 }
 
+nav a:hover{
+    color: #a7a7a7;
+}
+
+.btn-signin {
+    background-color: #ccc;
+    color: #ff0000;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    transition: background-color o.2 ease;
+    cursor: pointer;
+
+}
+
+.btn-signin:hover {
+    background-color: #222;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
