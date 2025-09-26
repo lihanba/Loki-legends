@@ -17,18 +17,9 @@ function updateCountdown() {
     }
 }
 const countdownInterval = setInterval(updateCountdown,1000);
+updateCountdown();
 
-// Animate 50+ hours
-const hoursElement = document.getElementById('hours');
-let hours = 0;
-const maxHours = 50;
-let hoursInterval = setInterval(()=>{
-    hours++;
-    hoursElement.textContent = `${hours}+`;
-    if(hours>=maxHours) clearInterval(hoursInterval);
-},50);
-
-// Particle Effects
+// Particle Effects that follow mouse
 const particlesContainer = document.getElementById('particles');
 function createParticle(x,y){
     const p = document.createElement('div');
