@@ -1,0 +1,32 @@
+let auth0Client;
+
+async function initAdmin() {
+  auth0Client = await createAuth0Client({
+    domain: "lihan-ba.au.auth0.com",
+    client_id: "PexG1ma6mSac322kOjVejWIzOaOS4mSp",
+    cacheLocation: "localstorage"
+  });
+
+  if (window.location.search.includes("code=")) {
+    await auth0Client.handleRedirectCallback();
+    window.history.replaceState({}, document.title, "/admin.html");
+  }
+
+  const user = await auth0Client.getUser();
+
+  if (!user || user.email !== "youremail@domain.com") {
+    alert("Not authorized");
+    window.location.href = "/";
+    return;
+  }
+
+  document.getElementById("profile").innerHTML = `
+    <p>Logged in as: ${user.name} (${user.email})</p>
+  `;
+
+  document.getElementById("logout").addEventListener("click", () => {
+    auth0Client.logout({ returnTo: window.location.origin });
+  });
+}
+
+initAdmin();
