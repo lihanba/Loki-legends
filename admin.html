@@ -1,32 +1,47 @@
-let auth0Client;
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+  <div id="profile"></div>
+  <button id="logout">Logout</button>
 
-async function initAdmin() {
-  auth0Client = await createAuth0Client({
-    domain: "lihan-ba.au.auth0.com",
-    client_id: "PexG1ma6mSac322kOjVejWIzOaOS4mSp",
-    cacheLocation: "localstorage"
-  });
+  <script>
+    let auth0Client;
 
-  if (window.location.search.includes("code=")) {
-    await auth0Client.handleRedirectCallback();
-    window.history.replaceState({}, document.title, "/admin.html");
-  }
+    async function initAdmin() {
+      auth0Client = await createAuth0Client({
+        domain: "lihan-ba.au.auth0.com",
+        client_id: "PexG1ma6mSac322kOjVejWIzOaOS4mSp",
+        cacheLocation: "localstorage"
+      });
 
-  const user = await auth0Client.getUser();
+      if (window.location.search.includes("code=")) {
+        await auth0Client.handleRedirectCallback();
+        window.history.replaceState({}, document.title, "/admin.html");
+      }
 
-  if (!user || user.email !== "youremail@domain.com") {
-    alert("Not authorized");
-    window.location.href = "/";
-    return;
-  }
+      const user = await auth0Client.getUser();
 
-  document.getElementById("profile").innerHTML = `
-    <p>Logged in as: ${user.name} (${user.email})</p>
-  `;
+      if (!user || user.email !== "youremail@domain.com") {
+        alert("Not authorized");
+        window.location.href = "/";
+        return;
+      }
 
-  document.getElementById("logout").addEventListener("click", () => {
-    auth0Client.logout({ returnTo: window.location.origin });
-  });
-}
+      document.getElementById("profile").innerHTML = `
+        <p>Logged in as: ${user.name} (${user.email})</p>
+      `;
 
-initAdmin();
+      document.getElementById("logout").addEventListener("click", () => {
+        auth0Client.logout({ returnTo: window.location.origin });
+      });
+    }
+
+    initAdmin();
+  </script>
+</body>
+</html>
