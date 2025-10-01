@@ -134,5 +134,28 @@
   <!-- JS -->
   <script src="script.js"></script>
 
+  <!-- AUTH0 LOGIN BUTTON -->
+<script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+<button id="auth0-login" style="position:fixed;bottom:20px;right:20px;padding:10px 20px;z-index:1000;">Admin Login</button>
+
+<script>
+let auth0Client;
+
+async function initAuth0Button() {
+  auth0Client = await createAuth0Client({
+    domain: "lihan-ba.au.auth0.com",
+    client_id: "PexG1ma6mSac322kOjVejWIzOaOS4mSp",
+    redirect_uri: "https://yoursite.netlify.app/admin.html" // replace with your Netlify admin URL
+  });
+
+  document.getElementById("auth0-login").addEventListener("click", () => {
+    auth0Client.loginWithRedirect();
+  });
+}
+
+initAuth0Button();
+</script>
+
+
 </body>
 </html>
