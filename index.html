@@ -1,153 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loki-Legends FTC Team</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loki-Legends FTC Team</title>
+  <link rel="stylesheet" href="style.css">
 
-<!-- Spline 3D Robot Viewer -->
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.70/build/spline-viewer.js"></script>
+  <!-- Spline 3D Robot Viewer -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.70/build/spline-viewer.js"></script>
 
-<!-- Supabase JS -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="logo-container">
-      <img src="logo.png" alt="Loki Legends Logo" class="logo-img">
-      <img src="TIs-logo.png" alt="TIs Logo" class="secondary-logo">
-      <div class="brand-text">
-        <span class="brand-title">Loki Legends</span>
-        <span class="brand-sub">FTC Team</span>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-container">
+        <img src="logo.png" alt="Loki Legends Logo" class="logo-img">
+        <img src="TIs-logo.png" alt="TIs Logo" class="secondary-logo" id="tis-logo">
+        <div class="brand-text">
+          <span class="brand-title">Loki Legends</span>
+          <span class="brand-sub">FTC Team</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="#hero">Home</a>
+        <a href="#team">Team</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <a href="admin.html" class="btn btn-login">Admin Login</a>
+        <button class="btn btn-contact">Contact Us</button>
       </div>
     </div>
-    <nav class="main-nav">
-      <a href="#hero">Home</a>
-      <a href="#team">Team</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#videos">Videos</a>
-      <a href="#resources">Resources</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="header-cta">
-      <a href="admin.html" class="btn btn-login">Admin Login</a>
-      <button class="btn btn-contact">Contact Us</button>
-    </div>
-  </div>
-</header>
+  </header>
 
-<!-- HERO SECTION -->
-<section class="hero-section" id="hero">
-  <div class="container hero-grid">
-    <div class="hero-left">
-      <div class="tag-box"><span class="tag">FTC 2025</span></div>
-      <h1 class="hero-title">Introducing the Loki Legends</h1>
-      <p class="hero-desc">
-        FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots.
-      </p>
-      <div class="hero-buttons">
-        <button class="btn btn-outline">Get Started</button>
-        <button class="btn btn-primary">Join Team</button>
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <div class="tag-box"><span class="tag">FTC 2025</span></div>
+        <h1 class="hero-title">Introducing the Loki Legends</h1>
+        <p class="hero-desc">
+          FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots.
+        </p>
+      </div>
+      <div class="hero-right">
+        <div class="robot-3d-wrapper">
+          <spline-viewer url="" id="robot-viewer"></spline-viewer>
+        </div>
+        <div class="robot-caption">Our 3D Robot Design</div>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="robot-3d-wrapper">
-        <spline-viewer url=""></spline-viewer>
-      </div>
-      <div class="robot-caption">Our 3D Robot Design</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- TEAM SECTION -->
-<section class="team-section" id="team">
-  <div class="container">
-      <h2>Our Team</h2>
-      <ul class="team-list">
-          <li><img src="isla.jpg" alt="Isla Buchanan"><p>Isla Buchanan</p></li>
-          <li><img src="lily.jpg" alt="Lily Wilson"><p>Lily Wilson</p></li>
-          <li><img src="ella.jpg" alt="Ella Fu"><p>Ella Fu</p></li>
-          <li><img src="aida.jpg" alt="Aida Hutchinson"><p>Aida Hutchinson</p></li>
-          <li><img src="maia.jpg" alt="Maia Richards"><p>Maia Richards</p></li>
-          <li><img src="alexis.jpg" alt="Alexis Joblin"><p>Alexis Joblin</p></li>
+  <!-- TEAM SECTION -->
+  <section class="team-section" id="team">
+    <div class="container">
+        <h2>Our Team</h2>
+        <ul class="team-list">
+            <li><img src="isla.jpg" alt="Isla Buchanan"><p>Isla Buchanan</p></li>
+            <li><img src="lily.jpg" alt="Lily Wilson"><p>Lily Wilson</p></li>
+            <li><img src="ella.jpg" alt="Ella Fu"><p>Ella Fu</p></li>
+            <li><img src="aida.jpg" alt="Aida Hutchinson"><p>Aida Hutchinson</p></li>
+            <li><img src="maia.jpg" alt="Maia Richards"><p>Maia Richards</p></li>
+            <li><img src="alexis.jpg" alt="Alexis Joblin"><p>Alexis Joblin</p></li>
+        </ul>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="gallery1.jpg" alt=""></div>
+        <div class="gallery-item"><img src="gallery2.jpg" alt=""></div>
+        <div class="gallery-item"><img src="gallery3.jpg" alt=""></div>
+        <div class="gallery-item"><img src="gallery4.jpg" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS SECTION -->
+  <section class="videos-section" id="videos">
+    <div class="container">
+      <h2>Videos</h2>
+      <div class="video-wrap">
+        <iframe width="100%" height="360" src="" title="YouTube video" frameborder="0" allowfullscreen id="video-frame"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <ul class="contact-list">
+        <li>Email:</li>
+        <li>Phone:</li>
+        <li>Address:</li>
       </ul>
-  </div>
-</section>
-
-<!-- GALLERY SECTION -->
-<section class="gallery-section" id="gallery">
-  <div class="container">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="gallery1.jpg" alt=""></div>
-      <div class="gallery-item"><img src="gallery2.jpg" alt=""></div>
-      <div class="gallery-item"><img src="gallery3.jpg" alt=""></div>
-      <div class="gallery-item"><img src="gallery4.jpg" alt=""></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- VIDEOS SECTION -->
-<section class="videos-section" id="videos">
-  <div class="container">
-    <h2>Videos</h2>
-    <div class="video-wrap">
-      <iframe width="100%" height="360" src="" title="YouTube video" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Loki Legends FTC Team. All rights reserved.</p>
+  </footer>
 
-<!-- CONTACT SECTION -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <ul class="contact-list">
-      <li>Email:</li>
-      <li>Phone:</li>
-      <li>Address:</li>
-    </ul>
-  </div>
-</section>
+  <!-- Load Supabase config -->
+  <script>
+    const supabaseUrl = "https://whisbnkseusifzmenwyo.supabase.co"; // <-- placeholder
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaXNibmtzZXVzaWZ6bWVud3lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0MzgxMTMsImV4cCI6MjA3NTAxNDExM30.sOpOYlCXON_D3WwCWL4b6ukMmccbBFaEUvJlSMz6lik"; // <-- placeholder
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <p>&copy; 2025 Loki Legends FTC Team. All rights reserved.</p>
-</footer>
+    async function loadConfig() {
+      const { data, error } = await supabase
+        .from('config')
+        .select('*')
+        .eq('id', 1)
+        .single();
 
-<!-- Load Supabase config -->
-<script>
-  const supabaseUrl = "https://whisbnkseusifzmenwyo.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaXNibmtzZXVzaWZ6bWVud3lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0MzgxMTMsImV4cCI6MjA3NTAxNDExM30.sOpOYlCXON_D3WwCWL4b6ukMmccbBFaEUvJlSMz6lik";
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+      if (error) {
+        console.error("Supabase error:", error.message);
+        return;
+      }
 
-  async function loadConfig() {
-    const { data, error } = await supabase
-      .from('config')
-      .select('*')
-      .eq('id', 1)
-      .single();
+      // Set 3D robot
+      const viewer = document.getElementById('robot-viewer');
+      if(viewer && data.heroImage) viewer.setAttribute('url', data.heroImage);
 
-    if (error) {
-      console.error(error);
-      return;
+      // Set video URL
+      const iframe = document.getElementById('video-frame');
+      if(iframe && data.videoURL) iframe.src = data.videoURL;
+
+      // Set contact info
+      const contactList = document.querySelectorAll('.contact-list li');
+      if(contactList.length >= 3) {
+        contactList[0].textContent = `Email: ${data.contactEmail || ''}`;
+        contactList[1].textContent = `Phone: ${data.contactPhone || ''}`;
+        contactList[2].textContent = `Address: ${data.contactAddress || ''}`;
+      }
+
+      // Ensure TIs-logo.png is visible
+      const tisLogo = document.getElementById('tis-logo');
+      if(tisLogo) tisLogo.src = "TIs-logo.png"; // replace with correct path if needed
     }
 
-    const viewer = document.querySelector('.robot-3d-wrapper spline-viewer');
-    if(viewer) viewer.setAttribute('url', data.heroImage);
+    window.addEventListener('load', loadConfig);
+  </script>
 
-    const iframe = document.querySelector('.videos-section iframe');
-    if(iframe) iframe.src = data.videoURL;
-
-    document.querySelector('.contact-list li:nth-child(1)').textContent = `Email: ${data.contactEmail}`;
-    document.querySelector('.contact-list li:nth-child(2)').textContent = `Phone: ${data.contactPhone}`;
-    document.querySelector('.contact-list li:nth-child(3)').textContent = `Address: ${data.contactAddress}`;
-  }
-
-  window.addEventListener('load', loadConfig);
-</script>
 </body>
 </html>
