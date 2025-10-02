@@ -5,157 +5,181 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loki-Legends FTC Team</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Spline 3D Robot Viewer -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.70/build/spline-viewer.js"></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
 </head>
 <body>
 
-  <!-- PARTICLES -->
-  <div id="particles"></div>
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo-container">
-        <img src="logo.png" alt="Loki Legends Logo" class="logo-img">
-        <img src="TIs-logo.png" alt="TIs Logo" class="secondary-logo">
-        <div class="brand-text">
-          <span class="brand-title">Loki Legends</span>
-          <span class="brand-sub">FTC Team</span>
+  <!-- PUBLIC PAGE -->
+  <div id="public-page">
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo-container">
+          <img src="logo.png" alt="Loki Legends Logo" class="logo-img">
+          <img src="TIs-logo.png" alt="TIs Logo" class="secondary-logo">
+          <div class="brand-text">
+            <span class="brand-title">Loki Legends</span>
+            <span class="brand-sub">FTC Team</span>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <a href="#hero">Home</a>
+          <a href="#team">Team</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#videos">Videos</a>
+          <a href="#resources">Resources</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-cta">
+          <button class="btn btn-login" id="login-btn">Admin Login</button>
+          <button class="btn btn-contact">Contact Us</button>
         </div>
       </div>
-      <nav class="main-nav">
-        <a href="#hero">Home</a>
-        <a href="#team">Team</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#videos">Videos</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="header-cta">
-        <button class="btn btn-login">Login</button>
-        <button class="btn btn-contact">Contact Us</button>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-section" id="hero">
-    <div class="container hero-grid">
-      <div class="hero-left">
-        <div class="tag-box"><span class="tag">FTC 2025</span></div>
-        <h1 class="hero-title">Introducing the Loki Legends</h1>
-        <p class="hero-desc">
-          FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots. We combine innovation, programming, and teamwork to solve the yearly challenge.
-        </p>
-        <div class="hero-buttons">
-          <button class="btn btn-outline">Get Started</button>
-          <button class="btn btn-primary">Join Team</button>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="tag-box"><span class="tag">FTC 2025</span></div>
+          <h1 class="hero-title">Introducing the Loki Legends</h1>
+          <p class="hero-desc">
+            FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-outline">Get Started</button>
+            <button class="btn btn-primary">Join Team</button>
+          </div>
+          <div class="countdown" id="countdown"></div>
         </div>
-        <div class="countdown" id="countdown"></div>
-      </div>
-      <div class="hero-right">
-        <div class="robot-3d-wrapper">
-          <spline-viewer url="undefined"></spline-viewer>
+        <div class="hero-right">
+          <div class="robot-3d-wrapper">
+            <spline-viewer url="undefined"></spline-viewer>
+          </div>
+          <div class="robot-caption">Our 3D Robot Design</div>
         </div>
-        <div class="robot-caption">Our 3D Robot Design</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TEAM SECTION -->
-  <section class="team-section" id="team">
-    <div class="container">
+    <!-- TEAM SECTION -->
+    <section class="team-section" id="team">
+      <div class="container">
         <h2>Our Team</h2>
         <ul class="team-list">
-            <li><img src="isla.jpg" alt="Isla Buchanan"><p>Isla Buchanan</p></li>
-            <li><img src="lily.jpg" alt="Lily Wilson"><p>Lily Wilson</p></li>
-            <li><img src="ella.jpg" alt="Ella Fu"><p>Ella Fu</p></li>
-            <li><img src="aida.jpg" alt="Aida Hutchinson"><p>Aida Hutchinson</p></li>
-            <li><img src="maia.jpg" alt="Maia Richards"><p>Maia Richards</p></li>
-            <li><img src="alexis.jpg" alt="Alexis Joblin"><p>Alexis Joblin</p></li>
+          <li><img src="isla.jpg" alt="Isla Buchanan"><p>Isla Buchanan</p></li>
+          <li><img src="lily.jpg" alt="Lily Wilson"><p>Lily Wilson</p></li>
+          <li><img src="ella.jpg" alt="Ella Fu"><p>Ella Fu</p></li>
+          <li><img src="aida.jpg" alt="Aida Hutchinson"><p>Aida Hutchinson</p></li>
+          <li><img src="maia.jpg" alt="Maia Richards"><p>Maia Richards</p></li>
+          <li><img src="alexis.jpg" alt="Alexis Joblin"><p>Alexis Joblin</p></li>
         </ul>
-    </div>
-  </section>
-
-  <!-- GALLERY SECTION -->
-  <section class="gallery-section" id="gallery">
-    <div class="container">
-      <h2>Gallery</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="gallery1.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery2.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery3.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery4.jpg" alt=""></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- VIDEOS SECTION -->
-  <section class="videos-section" id="videos">
-    <div class="container">
-      <h2>Videos</h2>
-      <div class="video-wrap">
-        <iframe width="100%" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+    <!-- GALLERY -->
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="gallery1.jpg" alt=""></div>
+          <div class="gallery-item"><img src="gallery2.jpg" alt=""></div>
+          <div class="gallery-item"><img src="gallery3.jpg" alt=""></div>
+          <div class="gallery-item"><img src="gallery4.jpg" alt=""></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- RESOURCES SECTION -->
-  <section class="resources-section" id="resources">
-    <div class="container">
-      <h2>Resources</h2>
-      <div class="resource-grid">
-        <div class="resource-card">Team Manual</div>
-        <div class="resource-card">Robot Build Guide</div>
-        <div class="resource-card">Competition Rules</div>
-        <div class="resource-card">Software Tutorials</div>
+    <!-- VIDEOS -->
+    <section class="videos-section" id="videos">
+      <div class="container">
+        <h2>Videos</h2>
+        <div class="video-wrap">
+          <iframe width="100%" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <ul class="contact-list">
-        <li>Email: info@lokilegends.com</li>
-        <li>Phone: +64 123 456 789</li>
-        <li>Address: Taradale Intermediate School, Napier, NZ</li>
-      </ul>
-    </div>
-  </section>
+    <!-- RESOURCES -->
+    <section class="resources-section" id="resources">
+      <div class="container">
+        <h2>Resources</h2>
+        <div class="resource-grid">
+          <div class="resource-card">Team Manual</div>
+          <div class="resource-card">Robot Build Guide</div>
+          <div class="resource-card">Competition Rules</div>
+          <div class="resource-card">Software Tutorials</div>
+        </div>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Loki Legends FTC Team. All rights reserved.</p>
-  </footer>
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <ul class="contact-list">
+          <li>Email: info@lokilegends.com</li>
+          <li>Phone: +64 123 456 789</li>
+          <li>Address: Taradale Intermediate School, Napier, NZ</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>&copy; 2025 Loki Legends FTC Team. All rights reserved.</p>
+    </footer>
+  </div>
 
-  <!-- AUTH0 LOGIN BUTTON -->
-<script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+  <!-- ADMIN PAGE -->
+  <div id="admin-page" style="display:none; padding:20px;">
+    <h1>Admin Dashboard</h1>
+    <p id="profile">Loading...</p>
+    <button id="logout-btn">Logout</button>
+  </div>
 
-<button id="auth0-login" style="position:fixed;bottom:20px;right:20px;padding:10px 20px;z-index:1000;">Admin Login</button>
+  <!-- AUTH0 SCRIPT -->
+  <script>
+    let auth0Client;
 
-<script>
-let auth0Client;
+    async function initAuth0() {
+      auth0Client = await createAuth0Client({
+        domain: "lihan-ba.au.auth0.com",
+        client_id: "PexG1ma6mSac322kOjVejWIzOaOS4mSp",
+        cacheLocation: "localstorage",
+        redirect_uri: window.location.origin
+      });
 
-async function initAuth0Button() {
-  auth0Client = await createAuth0Client({
-    domain: "lihan-ba.au.auth0.com",
-    client_id: "PexG1ma6mSac322kOjVejWIzOaOS4mSp",
-    redirect_uri: "https://loki-legends.netlify.app/admin.html"
-  });
+      if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+        await auth0Client.handleRedirectCallback();
+        window.history.replaceState({}, document.title, "/");
+      }
 
-  document.getElementById("auth0-login").addEventListener("click", () => {
-    auth0Client.loginWithRedirect();
-  });
-}
+      const isAuth = await auth0Client.isAuthenticated();
 
-initAuth0Button();
-</script>
+      if (isAuth) {
+        showAdmin();
+      }
 
+      document.getElementById("login-btn").addEventListener("click", async () => {
+        await auth0Client.loginWithRedirect();
+      });
+    }
+
+    async function showAdmin() {
+      document.getElementById("public-page").style.display = "none";
+      document.getElementById("admin-page").style.display = "block";
+
+      const user = await auth0Client.getUser();
+      document.getElementById("profile").innerText =
+        `Welcome ${user.name} (${user.email})`;
+
+      document.getElementById("logout-btn").addEventListener("click", () => {
+        auth0Client.logout({ returnTo: window.location.origin });
+      });
+    }
+
+    initAuth0();
+  </script>
 </body>
 </html>
