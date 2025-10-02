@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loki-Legends FTC Team</title>
   <link rel="stylesheet" href="style.css">
+
   <!-- Spline 3D Robot Viewer -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.70/build/spline-viewer.js"></script>
-  
-  <!-- SuperTokens -->
-  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/website.c7860dc40a39421c659b.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/supertokens.a91fb11593adf048be46.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/session.1e8cb79cef1389b3f612.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/emailpassword.9ad12a0b9dfd0097aad2.js"></script>
+
+  <!-- Clerk (Vanilla JS) -->
+  <script
+    async
+    crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_cHJlc2VudC1jaGlwbXVuay05OS5jbGVyay5hY2NvdW50cy5kZXYk"
+    src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
+  </script>
 </head>
 <body>
-
-  <!-- PARTICLES -->
-  <div id="particles"></div>
 
   <!-- HEADER -->
   <header class="site-header">
@@ -45,6 +45,9 @@
     </div>
   </header>
 
+  <!-- Clerk Login Widget -->
+  <div id="clerk-signin" style="margin-top:20px;"></div>
+
   <!-- HERO SECTION -->
   <section class="hero-section" id="hero">
     <div class="container hero-grid">
@@ -52,13 +55,12 @@
         <div class="tag-box"><span class="tag">FTC 2025</span></div>
         <h1 class="hero-title">Introducing the Loki Legends</h1>
         <p class="hero-desc">
-          FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots. We combine innovation, programming, and teamwork to solve the yearly challenge.
+          FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots.
         </p>
         <div class="hero-buttons">
           <button class="btn btn-outline">Get Started</button>
           <button class="btn btn-primary">Join Team</button>
         </div>
-        <div class="countdown" id="countdown"></div>
       </div>
       <div class="hero-right">
         <div class="robot-3d-wrapper">
@@ -140,26 +142,17 @@
   <!-- JS -->
   <script src="script.js"></script>
 
-  <!-- SuperTokens Initialization -->
+  <!-- Clerk Initialization -->
   <script>
-    supertokens.init({
-      appInfo: {
-        appName: "Loki Legends Admin",
-        apiDomain: "https://st-dev-9a3fe8f1-9f38-11f0-9d95-c3635cf81bb6.aws.supertokens.io",
-        websiteDomain: "https://loki-legends.netlify.app",
-        apiBasePath: "/auth",
-        websiteBasePath: "/auth"
-      },
-      recipeList: [
-        supertokensSession.init(),
-        supertokensEmailPassword.init()
-      ]
-    });
+    window.addEventListener("load", async () => {
+      await Clerk.load();
 
-    // Login button click
-    document.getElementById("login-btn").addEventListener("click", async () => {
-      // Redirect to the SuperTokens login UI
-      window.location.href = "/auth";
+      document.getElementById("login-btn").addEventListener("click", () => {
+        Clerk.mountSignIn(document.getElementById("clerk-signin"), {
+          afterSignInUrl: "/admin.html",
+          afterSignUpUrl: "/admin.html"
+        });
+      });
     });
   </script>
 
