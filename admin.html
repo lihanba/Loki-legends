@@ -5,28 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="style.css">
+
   <script
     async
     crossorigin="anonymous"
     data-clerk-publishable-key="pk_test_cHJlc2VudC1jaGlwbXVuay05OS5jbGVyay5hY2NvdW50cy5kZXYk"
     src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
   </script>
+
+  <style>
+    body { padding: 20px; font-family: sans-serif; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px 15px; cursor: pointer; }
+  </style>
 </head>
 <body>
 
   <h1>Admin Dashboard</h1>
   <div id="user-button"></div>
 
+  <h2>Edit Images & Video</h2>
+  <label>Main Hero Image URL:</label>
+  <input type="text" id="hero-image" placeholder="3D Robot Image URL">
+
+  <label>Video Embed URL:</label>
+  <input type="text" id="video-url" placeholder="YouTube embed URL">
+
+  <h2>Edit Contact Details</h2>
+  <label>Email:</label>
+  <input type="text" id="contact-email" placeholder="Email">
+
+  <label>Phone:</label>
+  <input type="text" id="contact-phone" placeholder="Phone">
+
+  <label>Address:</label>
+  <textarea id="contact-address" placeholder="Address"></textarea>
+
+  <button id="save-btn">Save Changes</button>
+
   <script>
     window.addEventListener("load", async () => {
       await Clerk.load();
 
+      // Redirect if not logged in
       if (!Clerk.user) {
         window.location.href = "/";
       } else {
-        // Show the user button (logout)
+        // Mount the logout/user button
         Clerk.mountUserButton(document.getElementById("user-button"));
       }
+
+      // Load saved data from localStorage
+      const heroImage = localStorage.getItem("heroImage") || "";
+      const videoURL = localStorage.getItem("videoURL") || "";
+      const contactEmail = localStorage.getItem("contactEmail") || "";
+      const contactPhone = localStorage.getItem("contactPhone") || "";
+      const contactAddress = localStorage.getItem("contactAddress") || "";
+
+      document.getElementById("hero-image").value = heroImage;
+      document.getElementById("video-url").value = videoURL;
+      document.getElementById("contact-email").value = contactEmail;
+      document.getElementById("contact-phone").value = contactPhone;
+      document.getElementById("contact-address").value = contactAddress;
+
+      // Save changes
+      document.getElementById("save-btn").addEventListener("click", () => {
+        localStorage.setItem("heroImage", document.getElementById("hero-image").value);
+        localStorage.setItem("videoURL", document.getElementById("video-url").value);
+        localStorage.setItem("contactEmail", document.getElementById("contact-email").value);
+        localStorage.setItem("contactPhone", document.getElementById("contact-phone").value);
+        localStorage.setItem("contactAddress", document.getElementById("contact-address").value);
+        alert("Changes saved! Refresh the homepage to see updates.");
+      });
     });
   </script>
 
