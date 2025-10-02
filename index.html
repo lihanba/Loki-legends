@@ -8,14 +8,6 @@
 
   <!-- Spline 3D Robot Viewer -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.70/build/spline-viewer.js"></script>
-
-  <!-- Clerk (Vanilla JS) -->
-  <script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="pk_test_cHJlc2VudC1jaGlwbXVuay05OS5jbGVyay5hY2NvdW50cy5kZXYk"
-    src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
-  </script>
 </head>
 <body>
 
@@ -45,8 +37,20 @@
     </div>
   </header>
 
-  <!-- Clerk Login Widget -->
-  <div id="clerk-signin" style="margin-top:20px;"></div>
+  <!-- Login Modal -->
+  <div id="login-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+       background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+    <div style="background:white; padding:20px; border-radius:8px; width:300px;">
+      <h2>Admin Login</h2>
+      <label>Username:</label>
+      <input type="text" id="login-username">
+      <label>Password:</label>
+      <input type="password" id="login-password">
+      <button id="login-submit">Login</button>
+      <button id="login-cancel">Cancel</button>
+      <p id="login-error" style="color:red; display:none;">Invalid credentials!</p>
+    </div>
+  </div>
 
   <!-- HERO SECTION -->
   <section class="hero-section" id="hero">
@@ -64,7 +68,7 @@
       </div>
       <div class="hero-right">
         <div class="robot-3d-wrapper">
-          <spline-viewer url="undefined"></spline-viewer>
+          <spline-viewer url=""></spline-viewer>
         </div>
         <div class="robot-caption">Our 3D Robot Design</div>
       </div>
@@ -104,7 +108,8 @@
     <div class="container">
       <h2>Videos</h2>
       <div class="video-wrap">
-        <iframe width="100%" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+          title="YouTube video" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -140,58 +145,65 @@
   </footer>
 
   <!-- JS -->
-  <script src="script.js"></script>
-
-  <!-- Clerk Initialization & Admin Redirect -->
   <script>
-    window.addEventListener("load", async () => {
-      await Clerk.load();
+    // OFFLINE LOGIN CONFIGURATION
+    const USERNAME = "admin";
+    const PASSWORD = "password123";
 
-      document.getElementById("login-btn").addEventListener("click", () => {
-        Clerk.mountSignIn(document.getElementById("clerk-signin"), {
-          afterSignInUrl: "/admin.html",
-          afterSignUpUrl: "/admin.html"
-        });
+    const loginBtn = document.getElementById("login-btn");
+    const loginModal = document.getElementById("login-modal");
+    const loginSubmit = document.getElementById("login-submit");
+    const loginCancel = document.getElementById("login-cancel");
+    const loginError = document.getElementById("login-error");
 
-        // Step 3: Redirect Admin Login after sign in
-        Clerk.addListener((event) => {
-          if (event.type === "signIn") {
-            window.location.href = "/admin.html";
-          }
-        });
-      });
+    loginBtn.addEventListener("click", () => {
+      loginModal.style.display = "flex";
     });
-  </script>
 
-  <!-- Load Admin Changes from localStorage -->
-  <script>
-    const heroImg = localStorage.getItem('heroImg');
-    const videoUrl = localStorage.getItem('videoUrl');
+    loginCancel.addEventListener("click", () => {
+      loginModal.style.display = "none";
+      loginError.style.display = "none";
+    });
+
+    loginSubmit.addEventListener("click", () => {
+      const user = document.getElementById("login-username").value;
+      const pass = document.getElementById("login-password").value;
+
+      if(user === USERNAME && pass === PASSWORD) {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "admin.html";
+      } else {
+        loginError.style.display = "block";
+      }
+    });
+
+    // Load saved admin changes
+    const heroImg = localStorage.getItem('heroImage');
+    const videoUrl = localStorage.getItem('videoURL');
     const contactEmail = localStorage.getItem('contactEmail');
     const contactPhone = localStorage.getItem('contactPhone');
     const contactAddress = localStorage.getItem('contactAddress');
 
-    if (heroImg) {
+    if(heroImg){
       const viewer = document.querySelector('.robot-3d-wrapper spline-viewer');
       if(viewer) viewer.setAttribute('url', heroImg);
     }
-    if (videoUrl) {
+    if(videoUrl){
       const iframe = document.querySelector('.videos-section iframe');
       if(iframe) iframe.src = videoUrl;
     }
-    if (contactEmail) {
+    if(contactEmail){
       const li = document.querySelector('.contact-list li:nth-child(1)');
       if(li) li.textContent = `Email: ${contactEmail}`;
     }
-    if (contactPhone) {
+    if(contactPhone){
       const li = document.querySelector('.contact-list li:nth-child(2)');
       if(li) li.textContent = `Phone: ${contactPhone}`;
     }
-    if (contactAddress) {
+    if(contactAddress){
       const li = document.querySelector('.contact-list li:nth-child(3)');
       if(li) li.textContent = `Address: ${contactAddress}`;
     }
   </script>
-
 </body>
 </html>

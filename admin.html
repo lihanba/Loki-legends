@@ -5,25 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="style.css">
-
-  <script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="pk_test_cHJlc2VudC1jaGlwbXVuay05OS5jbGVyay5hY2NvdW50cy5kZXYk"
-    src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
-  </script>
-
-  <style>
-    body { padding: 20px; font-family: sans-serif; }
-    label { display: block; margin-top: 15px; font-weight: bold; }
-    input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
-    button { margin-top: 15px; padding: 10px 15px; cursor: pointer; }
-  </style>
 </head>
 <body>
-
   <h1>Admin Dashboard</h1>
-  <div id="user-button"></div>
+  <button id="logout-btn">Logout</button>
 
   <h2>Edit Images & Video</h2>
   <label>Main Hero Image URL:</label>
@@ -45,41 +30,33 @@
   <button id="save-btn">Save Changes</button>
 
   <script>
-    window.addEventListener("load", async () => {
-      await Clerk.load();
+    // Check login
+    if(localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
 
-      // Redirect if not logged in
-      if (!Clerk.user) {
-        window.location.href = "/";
-      } else {
-        // Mount the logout/user button
-        Clerk.mountUserButton(document.getElementById("user-button"));
-      }
+    // Load saved data
+    document.getElementById("hero-image").value = localStorage.getItem("heroImage") || "";
+    document.getElementById("video-url").value = localStorage.getItem("videoURL") || "";
+    document.getElementById("contact-email").value = localStorage.getItem("contactEmail") || "";
+    document.getElementById("contact-phone").value = localStorage.getItem("contactPhone") || "";
+    document.getElementById("contact-address").value = localStorage.getItem("contactAddress") || "";
 
-      // Load saved data from localStorage
-      const heroImage = localStorage.getItem("heroImage") || "";
-      const videoURL = localStorage.getItem("videoURL") || "";
-      const contactEmail = localStorage.getItem("contactEmail") || "";
-      const contactPhone = localStorage.getItem("contactPhone") || "";
-      const contactAddress = localStorage.getItem("contactAddress") || "";
+    // Save changes
+    document.getElementById("save-btn").addEventListener("click", () => {
+      localStorage.setItem("heroImage", document.getElementById("hero-image").value);
+      localStorage.setItem("videoURL", document.getElementById("video-url").value);
+      localStorage.setItem("contactEmail", document.getElementById("contact-email").value);
+      localStorage.setItem("contactPhone", document.getElementById("contact-phone").value);
+      localStorage.setItem("contactAddress", document.getElementById("contact-address").value);
+      alert("Changes saved! Refresh the homepage to see updates.");
+    });
 
-      document.getElementById("hero-image").value = heroImage;
-      document.getElementById("video-url").value = videoURL;
-      document.getElementById("contact-email").value = contactEmail;
-      document.getElementById("contact-phone").value = contactPhone;
-      document.getElementById("contact-address").value = contactAddress;
-
-      // Save changes
-      document.getElementById("save-btn").addEventListener("click", () => {
-        localStorage.setItem("heroImage", document.getElementById("hero-image").value);
-        localStorage.setItem("videoURL", document.getElementById("video-url").value);
-        localStorage.setItem("contactEmail", document.getElementById("contact-email").value);
-        localStorage.setItem("contactPhone", document.getElementById("contact-phone").value);
-        localStorage.setItem("contactAddress", document.getElementById("contact-address").value);
-        alert("Changes saved! Refresh the homepage to see updates.");
-      });
+    // Logout
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
     });
   </script>
-
 </body>
 </html>
