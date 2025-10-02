@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  <h2>Admin Login</h2>
+  <div id="supertokens-root"></div>
+
+  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/website.c7860dc40a39421c659b.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/supertokens.a91fb11593adf048be46.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/session.1e8cb79cef1389b3f612.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/emailpassword.9ad12a0b9dfd0097aad2.js"></script>
+
+  <script>
+    supertokens.init({
+      appInfo: {
+        appName: "Loki Legends Admin",
+        apiDomain: "https://st-dev-9a3fe8f1-9f38-11f0-9d95-c3635cf81bb6.aws.supertokens.io",
+        websiteDomain: "https://loki-legends.netlify.app",
+        apiBasePath: "/auth",
+        websiteBasePath: "/auth"
+      },
+      recipeList: [
+        supertokensSession.init(),
+        supertokensEmailPassword.init()
+      ]
+    });
+
+    // Automatically redirect logged-in users to admin page
+    async function checkSession() {
+      if (await supertokensSession.doesSessionExist()) {
+        window.location.href = "/admin.html";
+      }
+    }
+    checkSession();
+  </script>
+</body>
+</html>

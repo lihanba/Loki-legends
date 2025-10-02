@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>Welcome Admin!</h1>
+  <button id="logout-btn">Sign Out</button>
+
+  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/website.c7860dc40a39421c659b.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/supertokens.a91fb11593adf048be46.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/session.1e8cb79cef1389b3f612.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js@v0.16.0/bundle/emailpassword.9ad12a0b9dfd0097aad2.js"></script>
+
+  <script>
+    supertokens.init({
+      appInfo: {
+        appName: "Loki Legends Admin",
+        apiDomain: "https://st-dev-9a3fe8f1-9f38-11f0-9d95-c3635cf81bb6.aws.supertokens.io",
+        websiteDomain: "https://loki-legends.netlify.app",
+        apiBasePath: "/auth",
+        websiteBasePath: "/auth"
+      },
+      recipeList: [
+        supertokensSession.init(),
+        supertokensEmailPassword.init()
+      ]
+    });
+
+    async function checkAdminSession() {
+      if (!await supertokensSession.doesSessionExist()) {
+        window.location.href = "/auth";
+      }
+    }
+
+    document.getElementById("logout-btn").addEventListener("click", async () => {
+      await supertokensSession.signOut();
+      window.location.href = "/auth";
+    });
+
+    checkAdminSession();
+  </script>
+</body>
+</html>
