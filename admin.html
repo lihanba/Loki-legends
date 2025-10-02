@@ -1,62 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { padding: 20px; font-family: sans-serif; }
+  label { display: block; margin-top: 15px; font-weight: bold; }
+  input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+  button { margin-top: 15px; padding: 10px 15px; cursor: pointer; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
-  <h1>Admin Dashboard</h1>
-  <button id="logout-btn">Logout</button>
+<h1>Admin Dashboard</h1>
 
-  <h2>Edit Images & Video</h2>
-  <label>Main Hero Image URL:</label>
-  <input type="text" id="hero-image" placeholder="3D Robot Image URL">
+<h2>Edit Images & Video</h2>
+<label>Main Hero Image URL:</label>
+<input type="text" id="hero-image" placeholder="3D Robot Image URL">
 
-  <label>Video Embed URL:</label>
-  <input type="text" id="video-url" placeholder="YouTube embed URL">
+<label>Video Embed URL:</label>
+<input type="text" id="video-url" placeholder="YouTube embed URL">
 
-  <h2>Edit Contact Details</h2>
-  <label>Email:</label>
-  <input type="text" id="contact-email" placeholder="Email">
+<h2>Edit Contact Details</h2>
+<label>Email:</label>
+<input type="text" id="contact-email" placeholder="Email">
 
-  <label>Phone:</label>
-  <input type="text" id="contact-phone" placeholder="Phone">
+<label>Phone:</label>
+<input type="text" id="contact-phone" placeholder="Phone">
 
-  <label>Address:</label>
-  <textarea id="contact-address" placeholder="Address"></textarea>
+<label>Address:</label>
+<textarea id="contact-address" placeholder="Address"></textarea>
 
-  <button id="save-btn">Save Changes</button>
+<button id="save-btn">Save Changes</button>
 
-  <script>
-    // Check login
-    if(localStorage.getItem("loggedIn") !== "true") {
-      window.location.href = "index.html";
-    }
+<script>
+const supabaseUrl = "https://whisbnkseusifzmenwyo.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaXNibmtzZXVzaWZ6bWVud3lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0MzgxMTMsImV4cCI6MjA3NTAxNDExM30.sOpOYlCXON_D3WwCWL4b6ukMmccbBFaEUvJlSMz6lik";
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-    // Load saved data
-    document.getElementById("hero-image").value = localStorage.getItem("heroImage") || "";
-    document.getElementById("video-url").value = localStorage.getItem("videoURL") || "";
-    document.getElementById("contact-email").value = localStorage.getItem("contactEmail") || "";
-    document.getElementById("contact-phone").value = localStorage.getItem("contactPhone") || "";
-    document.getElementById("contact-address").value = localStorage.getItem("contactAddress") || "";
+async function loadAdminConfig() {
+  const { data, error } = await supabase
+    .from('config')
+    .select('*')
+    .eq('id', 1)
+    .single();
+  if(error) return console.error(error);
 
-    // Save changes
-    document.getElementById("save-btn").addEventListener("click", () => {
-      localStorage.setItem("heroImage", document.getElementById("hero-image").value);
-      localStorage.setItem("videoURL", document.getElementById("video-url").value);
-      localStorage.setItem("contactEmail", document.getElementById("contact-email").value);
-      localStorage.setItem("contactPhone", document.getElementById("contact-phone").value);
-      localStorage.setItem("contactAddress", document.getElementById("contact-address").value);
-      alert("Changes saved! Refresh the homepage to see updates.");
-    });
+  document.getElementById("hero-image").value = data.heroImage;
+  document.getElementById("video-url").value = data.videoURL;
+  document.getElementById("contact-email").value = data.contactEmail;
+  document.getElementById("contact-phone").value = data.contactPhone;
+  document.getElementById("contact-address").value = data.contactAddress;
+}
 
-    // Logout
-    document.getElementById("logout-btn").addEventListener("click", () => {
-      localStorage.removeItem("loggedIn");
-      window.location.href = "index.html";
-    });
-  </script>
+async function saveConfig() {
+  const newConfig = {
+    heroImage: document.getElementById("hero-image").value,
+    videoURL: document.getElementById("video-url").value,
+    contactEmail: document.getElementById("contact-email").value,
+    contactPhone: document.getElementById("contact-phone").value,
+    contactAddress: document.getElementById("contact-address").value
+  };
+
+  const { data, error } = await supabase
+    .from('config')
+    .update(newConfig)
+    .eq('id', 1);
+
+  if(error) {
+    alert("Error saving: " + error.message);
+  } else {
+    alert("Config updated successfully!");
+  }
+}
+
+window.addEventListener('load', loadAdminConfig);
+document.getElementById("save-btn").addEventListener("click", saveConfig);
+</script>
 </body>
 </html>

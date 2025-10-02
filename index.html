@@ -1,209 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loki-Legends FTC Team</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loki-Legends FTC Team</title>
+<link rel="stylesheet" href="style.css">
 
-  <!-- Spline 3D Robot Viewer -->
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.70/build/spline-viewer.js"></script>
+<!-- Spline 3D Robot Viewer -->
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.70/build/spline-viewer.js"></script>
+
+<!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo-container">
-        <img src="logo.png" alt="Loki Legends Logo" class="logo-img">
-        <img src="TIs-logo.png" alt="TIs Logo" class="secondary-logo">
-        <div class="brand-text">
-          <span class="brand-title">Loki Legends</span>
-          <span class="brand-sub">FTC Team</span>
-        </div>
-      </div>
-      <nav class="main-nav">
-        <a href="#hero">Home</a>
-        <a href="#team">Team</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#videos">Videos</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="header-cta">
-        <button class="btn btn-login" id="login-btn">Admin Login</button>
-        <button class="btn btn-contact">Contact Us</button>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo-container">
+      <img src="logo.png" alt="Loki Legends Logo" class="logo-img">
+      <img src="TIs-logo.png" alt="TIs Logo" class="secondary-logo">
+      <div class="brand-text">
+        <span class="brand-title">Loki Legends</span>
+        <span class="brand-sub">FTC Team</span>
       </div>
     </div>
-  </header>
-
-  <!-- Login Modal -->
-  <div id="login-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-       background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
-    <div style="background:white; padding:20px; border-radius:8px; width:300px;">
-      <h2>Admin Login</h2>
-      <label>Username:</label>
-      <input type="text" id="login-username">
-      <label>Password:</label>
-      <input type="password" id="login-password">
-      <button id="login-submit">Login</button>
-      <button id="login-cancel">Cancel</button>
-      <p id="login-error" style="color:red; display:none;">Invalid credentials!</p>
+    <nav class="main-nav">
+      <a href="#hero">Home</a>
+      <a href="#team">Team</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#videos">Videos</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="admin.html" class="btn btn-login">Admin Login</a>
+      <button class="btn btn-contact">Contact Us</button>
     </div>
   </div>
+</header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-section" id="hero">
-    <div class="container hero-grid">
-      <div class="hero-left">
-        <div class="tag-box"><span class="tag">FTC 2025</span></div>
-        <h1 class="hero-title">Introducing the Loki Legends</h1>
-        <p class="hero-desc">
-          FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots.
-        </p>
-        <div class="hero-buttons">
-          <button class="btn btn-outline">Get Started</button>
-          <button class="btn btn-primary">Join Team</button>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="robot-3d-wrapper">
-          <spline-viewer url=""></spline-viewer>
-        </div>
-        <div class="robot-caption">Our 3D Robot Design</div>
+<!-- HERO SECTION -->
+<section class="hero-section" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-left">
+      <div class="tag-box"><span class="tag">FTC 2025</span></div>
+      <h1 class="hero-title">Introducing the Loki Legends</h1>
+      <p class="hero-desc">
+        FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn btn-outline">Get Started</button>
+        <button class="btn btn-primary">Join Team</button>
       </div>
     </div>
-  </section>
-
-  <!-- TEAM SECTION -->
-  <section class="team-section" id="team">
-    <div class="container">
-        <h2>Our Team</h2>
-        <ul class="team-list">
-            <li><img src="isla.jpg" alt="Isla Buchanan"><p>Isla Buchanan</p></li>
-            <li><img src="lily.jpg" alt="Lily Wilson"><p>Lily Wilson</p></li>
-            <li><img src="ella.jpg" alt="Ella Fu"><p>Ella Fu</p></li>
-            <li><img src="aida.jpg" alt="Aida Hutchinson"><p>Aida Hutchinson</p></li>
-            <li><img src="maia.jpg" alt="Maia Richards"><p>Maia Richards</p></li>
-            <li><img src="alexis.jpg" alt="Alexis Joblin"><p>Alexis Joblin</p></li>
-        </ul>
-    </div>
-  </section>
-
-  <!-- GALLERY SECTION -->
-  <section class="gallery-section" id="gallery">
-    <div class="container">
-      <h2>Gallery</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="gallery1.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery2.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery3.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery4.jpg" alt=""></div>
+    <div class="hero-right">
+      <div class="robot-3d-wrapper">
+        <spline-viewer url=""></spline-viewer>
       </div>
+      <div class="robot-caption">Our 3D Robot Design</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- VIDEOS SECTION -->
-  <section class="videos-section" id="videos">
-    <div class="container">
-      <h2>Videos</h2>
-      <div class="video-wrap">
-        <iframe width="100%" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-          title="YouTube video" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESOURCES SECTION -->
-  <section class="resources-section" id="resources">
-    <div class="container">
-      <h2>Resources</h2>
-      <div class="resource-grid">
-        <div class="resource-card">Team Manual</div>
-        <div class="resource-card">Robot Build Guide</div>
-        <div class="resource-card">Competition Rules</div>
-        <div class="resource-card">Software Tutorials</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <ul class="contact-list">
-        <li>Email: info@lokilegends.com</li>
-        <li>Phone: +64 123 456 789</li>
-        <li>Address: Taradale Intermediate School, Napier, NZ</li>
+<!-- TEAM SECTION -->
+<section class="team-section" id="team">
+  <div class="container">
+      <h2>Our Team</h2>
+      <ul class="team-list">
+          <li><img src="isla.jpg" alt="Isla Buchanan"><p>Isla Buchanan</p></li>
+          <li><img src="lily.jpg" alt="Lily Wilson"><p>Lily Wilson</p></li>
+          <li><img src="ella.jpg" alt="Ella Fu"><p>Ella Fu</p></li>
+          <li><img src="aida.jpg" alt="Aida Hutchinson"><p>Aida Hutchinson</p></li>
+          <li><img src="maia.jpg" alt="Maia Richards"><p>Maia Richards</p></li>
+          <li><img src="alexis.jpg" alt="Alexis Joblin"><p>Alexis Joblin</p></li>
       </ul>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="gallery1.jpg" alt=""></div>
+      <div class="gallery-item"><img src="gallery2.jpg" alt=""></div>
+      <div class="gallery-item"><img src="gallery3.jpg" alt=""></div>
+      <div class="gallery-item"><img src="gallery4.jpg" alt=""></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Loki Legends FTC Team. All rights reserved.</p>
-  </footer>
+<!-- VIDEOS SECTION -->
+<section class="videos-section" id="videos">
+  <div class="container">
+    <h2>Videos</h2>
+    <div class="video-wrap">
+      <iframe width="100%" height="360" src="" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 
-  <!-- JS -->
-  <script>
-    // OFFLINE LOGIN CONFIGURATION
-    const USERNAME = "admin";
-    const PASSWORD = "password123";
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <ul class="contact-list">
+      <li>Email:</li>
+      <li>Phone:</li>
+      <li>Address:</li>
+    </ul>
+  </div>
+</section>
 
-    const loginBtn = document.getElementById("login-btn");
-    const loginModal = document.getElementById("login-modal");
-    const loginSubmit = document.getElementById("login-submit");
-    const loginCancel = document.getElementById("login-cancel");
-    const loginError = document.getElementById("login-error");
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>&copy; 2025 Loki Legends FTC Team. All rights reserved.</p>
+</footer>
 
-    loginBtn.addEventListener("click", () => {
-      loginModal.style.display = "flex";
-    });
+<!-- Load Supabase config -->
+<script>
+  const supabaseUrl = "https://whisbnkseusifzmenwyo.supabase.co";
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaXNibmtzZXVzaWZ6bWVud3lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0MzgxMTMsImV4cCI6MjA3NTAxNDExM30.sOpOYlCXON_D3WwCWL4b6ukMmccbBFaEUvJlSMz6lik";
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-    loginCancel.addEventListener("click", () => {
-      loginModal.style.display = "none";
-      loginError.style.display = "none";
-    });
+  async function loadConfig() {
+    const { data, error } = await supabase
+      .from('config')
+      .select('*')
+      .eq('id', 1)
+      .single();
 
-    loginSubmit.addEventListener("click", () => {
-      const user = document.getElementById("login-username").value;
-      const pass = document.getElementById("login-password").value;
-
-      if(user === USERNAME && pass === PASSWORD) {
-        localStorage.setItem("loggedIn", "true");
-        window.location.href = "admin.html";
-      } else {
-        loginError.style.display = "block";
-      }
-    });
-
-    // Load saved admin changes
-    const heroImg = localStorage.getItem('heroImage');
-    const videoUrl = localStorage.getItem('videoURL');
-    const contactEmail = localStorage.getItem('contactEmail');
-    const contactPhone = localStorage.getItem('contactPhone');
-    const contactAddress = localStorage.getItem('contactAddress');
-
-    if(heroImg){
-      const viewer = document.querySelector('.robot-3d-wrapper spline-viewer');
-      if(viewer) viewer.setAttribute('url', heroImg);
+    if (error) {
+      console.error(error);
+      return;
     }
-    if(videoUrl){
-      const iframe = document.querySelector('.videos-section iframe');
-      if(iframe) iframe.src = videoUrl;
-    }
-    if(contactEmail){
-      const li = document.querySelector('.contact-list li:nth-child(1)');
-      if(li) li.textContent = `Email: ${contactEmail}`;
-    }
-    if(contactPhone){
-      const li = document.querySelector('.contact-list li:nth-child(2)');
-      if(li) li.textContent = `Phone: ${contactPhone}`;
-    }
-    if(contactAddress){
-      const li = document.querySelector('.contact-list li:nth-child(3)');
-      if(li) li.textContent = `Address: ${contactAddress}`;
-    }
-  </script>
+
+    const viewer = document.querySelector('.robot-3d-wrapper spline-viewer');
+    if(viewer) viewer.setAttribute('url', data.heroImage);
+
+    const iframe = document.querySelector('.videos-section iframe');
+    if(iframe) iframe.src = data.videoURL;
+
+    document.querySelector('.contact-list li:nth-child(1)').textContent = `Email: ${data.contactEmail}`;
+    document.querySelector('.contact-list li:nth-child(2)').textContent = `Phone: ${data.contactPhone}`;
+    document.querySelector('.contact-list li:nth-child(3)').textContent = `Address: ${data.contactAddress}`;
+  }
+
+  window.addEventListener('load', loadConfig);
+</script>
 </body>
 </html>
