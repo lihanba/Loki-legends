@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loki-Legends FTC Team</title>
   <link rel="stylesheet" href="style.css">
-
   <!-- Spline 3D Robot Viewer -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.70/build/spline-viewer.js"></script>
-
-  <!-- Supabase JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
+
+  <!-- PARTICLES -->
+  <div id="particles"></div>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo-container">
         <img src="logo.png" alt="Loki Legends Logo" class="logo-img">
-        <img src="TIs-logo.png" alt="TIs Logo" class="secondary-logo" id="tis-logo">
+        <img src="TIs-logo.png" alt="TIs Logo" class="secondary-logo">
         <div class="brand-text">
           <span class="brand-title">Loki Legends</span>
           <span class="brand-sub">FTC Team</span>
@@ -34,7 +33,7 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="header-cta">
-        <a href="admin.html" class="btn btn-login">Admin Login</a>
+        <button class="btn btn-login">Login</button>
         <button class="btn btn-contact">Contact Us</button>
       </div>
     </div>
@@ -47,12 +46,17 @@
         <div class="tag-box"><span class="tag">FTC 2025</span></div>
         <h1 class="hero-title">Introducing the Loki Legends</h1>
         <p class="hero-desc">
-          FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots.
+          FTC (FIRST Tech Challenge) is a global robotics competition where students design, build, and code robots. We combine innovation, programming, and teamwork to solve the yearly challenge.
         </p>
+        <div class="hero-buttons">
+          <button class="btn btn-outline">Get Started</button>
+          <button class="btn btn-primary">Join Team</button>
+        </div>
+        <div class="countdown" id="countdown"></div>
       </div>
       <div class="hero-right">
         <div class="robot-3d-wrapper">
-          <spline-viewer url="" id="robot-viewer"></spline-viewer>
+          <spline-viewer url="undefined"></spline-viewer>
         </div>
         <div class="robot-caption">Our 3D Robot Design</div>
       </div>
@@ -92,7 +96,20 @@
     <div class="container">
       <h2>Videos</h2>
       <div class="video-wrap">
-        <iframe width="100%" height="360" src="" title="YouTube video" frameborder="0" allowfullscreen id="video-frame"></iframe>
+        <iframe width="100%" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES SECTION -->
+  <section class="resources-section" id="resources">
+    <div class="container">
+      <h2>Resources</h2>
+      <div class="resource-grid">
+        <div class="resource-card">Team Manual</div>
+        <div class="resource-card">Robot Build Guide</div>
+        <div class="resource-card">Competition Rules</div>
+        <div class="resource-card">Software Tutorials</div>
       </div>
     </div>
   </section>
@@ -102,9 +119,9 @@
     <div class="container">
       <h2>Contact Us</h2>
       <ul class="contact-list">
-        <li>Email:</li>
-        <li>Phone:</li>
-        <li>Address:</li>
+        <li>Email: info@lokilegends.com</li>
+        <li>Phone: +64 123 456 789</li>
+        <li>Address: Taradale Intermediate School, Napier, NZ</li>
       </ul>
     </div>
   </section>
@@ -114,47 +131,8 @@
     <p>&copy; 2025 Loki Legends FTC Team. All rights reserved.</p>
   </footer>
 
-  <!-- Load Supabase config -->
-  <script>
-    const supabaseUrl = "https://whisbnkseusifzmenwyo.supabase.co"; // <-- placeholder
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaXNibmtzZXVzaWZ6bWVud3lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0MzgxMTMsImV4cCI6MjA3NTAxNDExM30.sOpOYlCXON_D3WwCWL4b6ukMmccbBFaEUvJlSMz6lik"; // <-- placeholder
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-    async function loadConfig() {
-      const { data, error } = await supabase
-        .from('config')
-        .select('*')
-        .eq('id', 1)
-        .single();
-
-      if (error) {
-        console.error("Supabase error:", error.message);
-        return;
-      }
-
-      // Set 3D robot
-      const viewer = document.getElementById('robot-viewer');
-      if(viewer && data.heroImage) viewer.setAttribute('url', data.heroImage);
-
-      // Set video URL
-      const iframe = document.getElementById('video-frame');
-      if(iframe && data.videoURL) iframe.src = data.videoURL;
-
-      // Set contact info
-      const contactList = document.querySelectorAll('.contact-list li');
-      if(contactList.length >= 3) {
-        contactList[0].textContent = `Email: ${data.contactEmail || ''}`;
-        contactList[1].textContent = `Phone: ${data.contactPhone || ''}`;
-        contactList[2].textContent = `Address: ${data.contactAddress || ''}`;
-      }
-
-      // Ensure TIs-logo.png is visible
-      const tisLogo = document.getElementById('tis-logo');
-      if(tisLogo) tisLogo.src = "TIs-logo.png"; // replace with correct path if needed
-    }
-
-    window.addEventListener('load', loadConfig);
-  </script>
+  <!-- JS -->
+  <script src="script.js"></script>
 
 </body>
 </html>
