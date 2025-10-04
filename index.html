@@ -9,6 +9,34 @@
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.74/build/spline-viewer.js"></script>
   <!-- Common Ninja -->
   <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+  <style>
+    /* Modal styles */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0; top: 0; 
+      width: 100%; height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
@@ -32,14 +60,13 @@
         <a href="#gallery">Gallery</a>
         <a href="#videos">Videos</a>
         <a href="#resources">Resources</a>
-        <a href="#firstcode">Our First Code</a> <!-- New Menu Button -->
-        <a href="#contact">Contact</a>
+        <a href="#" id="contactLink">Contact</a> <!-- Opens Modal -->
+        <a href="#firstcode">Our First Code</a>
       </nav>
       <div class="header-cta">
         <button class="btn btn-login" onclick="window.location.href='https://my.firstinspires.org/Dashboard/';">
           Login
         </button>
-        <button class="btn btn-contact">Contact Us</button>
       </div>
     </div>
   </header>
@@ -134,17 +161,17 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <ul class="contact-list">
-        <li>Email: info@lokilegends.com</li>
-        <li>Phone: +64 123 456 789</li>
-        <li>Address: Taradale Intermediate School, Napier, NZ</li>
-      </ul>
+  <!-- CONTACT MODAL -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h2>Contact & School Info</h2>
+      <p><strong>School:</strong> Taradale Intermediate School, Napier, NZ</p>
+      <p><strong>Coach Email:</strong> <a href="mailto:simonl@taradaleint.school.nz">simonl@taradaleint.school.nz</a></p>
+      <p><strong>Phone:</strong> +64 123 456 789</p>
+      <p><strong>Email:</strong> info@lokilegends.com</p>
     </div>
-  </section>
+  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -153,6 +180,27 @@
 
   <!-- JS -->
   <script src="script.js"></script>
+  <script>
+    // Modal JS
+    const modal = document.getElementById("contactModal");
+    const contactLink = document.getElementById("contactLink");
+    const closeBtn = document.getElementById("closeModal");
+
+    contactLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
 
 </body>
 </html>
